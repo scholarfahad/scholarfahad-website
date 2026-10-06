@@ -1,0 +1,41 @@
+{
+  "intro": "Reach thousands of students and graduates actively applying for scholarships, master's and PhD programmes, and jobs abroad.",
+  "audience": [
+    { "label": "Total followers", "value": "71K" },
+    { "label": "Facebook page", "value": "" },
+    { "label": "WhatsApp channel", "value": "" },
+    { "label": "Monthly website visitors", "value": "" }
+  ],
+  "audience_profile": [
+    "Students and graduates planning undergraduate, master's and PhD study abroad",
+    "Young professionals looking for funded programmes and international jobs",
+    "Highly engaged with deadlines, application tips and test preparation"
+  ],
+  "packages": [
+    {
+      "name": "Sponsored scholarship or programme post",
+      "description": "A full post on the website about your programme, written in our style and labelled as sponsored.",
+      "includes": ["Permanent page on our website", "Link to your application page", "Shared once on Facebook"],
+      "price": ""
+    },
+    {
+      "name": "Social media feature",
+      "description": "A dedicated post about your programme, course or service on our social channels.",
+      "includes": ["One Facebook post", "One WhatsApp channel update", "Your link and call to action"],
+      "price": ""
+    },
+    {
+      "name": "Full campaign",
+      "description": "The best option for application deadlines and intakes.",
+      "includes": ["Sponsored website post", "Two Facebook posts", "Two WhatsApp channel updates", "Featured on the homepage for one week"],
+      "price": ""
+    }
+  ],
+  "who_for": [
+    "Universities and colleges recruiting international students",
+    "Study-abroad and admissions agencies",
+    "English test preparation centres",
+    "Education loan and scholarship providers",
+    "Online courses and career training"
+  ]
+}

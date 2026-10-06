@@ -1,0 +1,115 @@
+# Admin editor settings for Scholar Fahad (Sveltia CMS)
+backend:
+  name: github
+  repo: scholarfahad/scholarfahad-website
+  branch: main
+
+site_url: https://scholarfahad.com
+display_url: https://scholarfahad.com
+media_folder: src/assets/uploads
+public_folder: /assets/uploads
+
+collections:
+  - name: scholarships
+    label: Scholarships
+    label_singular: Scholarship
+    description: Each scholarship gets its own page on the website.
+    folder: src/scholarships
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: [date, title, country]
+    summary: "{{title}} — {{country}}"
+    fields:
+      - { name: title, label: Title, widget: string, hint: "e.g. Chevening Scholarships (UK)" }
+      - { name: date, label: Date posted or updated, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD" }
+      - { name: country, label: Host country, widget: string, hint: "Use the same spelling every time, e.g. United Kingdom, Germany" }
+      - name: levels
+        label: Study levels
+        widget: select
+        multiple: true
+        options:
+          - { label: Undergraduate, value: undergraduate }
+          - { label: "Master's", value: masters }
+          - { label: PhD, value: phd }
+          - { label: Other, value: other }
+      - name: funding
+        label: Funding
+        widget: select
+        default: Fully funded
+        options: [Fully funded, Partially funded, Tuition only]
+      - { name: deadline, label: Exact deadline, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", required: false, hint: "Leave empty if you only know the usual window" }
+      - { name: window, label: Usual application window, widget: string, required: false, hint: "e.g. Usually opens in August and closes in November" }
+      - { name: official_url, label: Official website link, widget: string, hint: "Always link to the provider's own site" }
+      - { name: sponsored, label: Sponsored post, widget: boolean, default: false, required: false, hint: "Turn on for paid posts. A 'Sponsored' label is shown." }
+      - { name: summary, label: Short summary, widget: text, hint: "One or two sentences. Shown on listing cards and in Google results." }
+      - { name: body, label: Full details, widget: markdown, hint: "Suggested sections: What it covers, Who can apply, Documents you'll need, How to apply, Tips" }
+
+  - name: guides
+    label: Guides
+    label_singular: Guide
+    folder: src/guides
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD" }
+      - { name: summary, label: Short summary, widget: text }
+      - { name: body, label: Article, widget: markdown }
+
+  - name: settings
+    label: Site settings
+    files:
+      - name: site
+        label: General settings
+        file: src/_data/site.json
+        format: json
+        fields:
+          - { name: name, label: Site name, widget: string }
+          - { name: tagline, label: Tagline, widget: string }
+          - { name: description, label: Description for Google, widget: text }
+          - { name: followers, label: Follower count shown on homepage, widget: string, hint: "e.g. 71K" }
+          - { name: facebook, label: Facebook page link, widget: string }
+          - { name: youtube, label: YouTube link, widget: string }
+          - { name: whatsapp_channel, label: WhatsApp channel link, widget: string, required: false }
+          - { name: contact_email, label: Contact email, widget: string, required: false }
+          - { name: adsense_client, label: AdSense publisher ID, widget: string, required: false, hint: "Looks like ca-pub-1234567890123456. Leave empty until AdSense approves you." }
+      - name: services
+        label: Review services and prices
+        file: src/_data/services.json
+        format: json
+        fields:
+          - name: items
+            label: Services
+            widget: list
+            fields:
+              - { name: name, label: Service name, widget: string }
+              - { name: description, label: Description, widget: string }
+              - { name: includes, label: "What's included", widget: list, field: { name: item, label: Item, widget: string } }
+              - { name: price, label: Price, widget: string, required: false, hint: "e.g. ₦15,000 or $20. Leave empty to show 'Price on request'." }
+      - name: advertise
+        label: Advertise page
+        file: src/_data/advertise.json
+        format: json
+        fields:
+          - { name: intro, label: Introduction, widget: text }
+          - name: audience
+            label: Audience numbers
+            widget: list
+            hint: Leave a value empty to hide it
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: value, label: Number, widget: string, required: false, hint: "e.g. 45K" }
+          - { name: audience_profile, label: About your audience, widget: list, field: { name: item, label: Point, widget: string } }
+          - name: packages
+            label: Packages
+            widget: list
+            fields:
+              - { name: name, label: Package name, widget: string }
+              - { name: description, label: Description, widget: string }
+              - { name: includes, label: "What's included", widget: list, field: { name: item, label: Item, widget: string } }
+              - { name: price, label: Price, widget: string, required: false, hint: "e.g. $50. Leave empty to show 'Contact for rates'." }
+          - { name: who_for, label: Who advertises with you, widget: list, field: { name: item, label: Type of advertiser, widget: string } }

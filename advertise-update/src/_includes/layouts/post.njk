@@ -1,0 +1,86 @@
+---
+layout: layouts/base.njk
+---
+{% set isScholarship = country %}
+{% set st = deadline | deadlineStatus %}
+<div class="wrap narrow">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a> /
+    {% if isScholarship %}<a href="/scholarships/">Scholarships</a> / <a href="/scholarships/countries/{{ country | slug2 }}/">{{ country }}</a>
+    {% else %}<a href="/guides/">Guides</a>{% endif %}
+  </nav>
+
+  <header class="article-head">
+    {% if isScholarship %}<div class="label">{{ country }} · {{ funding or "Fully funded" }}</div>{% else %}<div class="label">Application guide</div>{% endif %}
+    <h1>{{ title }}</h1>
+    <div class="meta">
+      <span>Updated {{ page.date | readableDate }}</span>
+      {% if sponsored %}<span class="fund sponsored">Sponsored</span>{% endif %}
+      {% if st %}<span class="status {{ st.cls }}">{{ st.label }}</span>{% endif %}
+    </div>
+  </header>
+
+  {% if sponsored %}<p class="note" style="margin:0 0 20px">This post is sponsored. We only feature programmes we believe are legitimate, and applying is always done on the official website.</p>{% endif %}
+  {% if isScholarship %}
+  <aside class="factbox" aria-label="Key facts">
+    <dl class="facts">
+      <dt>Host country</dt><dd>{{ country }}</dd>
+      <dt>Study level</dt><dd>{% for l in levels %}{{ l | levelName }}{% if not loop.last %}, {% endif %}{% endfor %}</dd>
+      <dt>Funding</dt><dd>{{ funding or "Fully funded" }}</dd>
+      {% if deadline %}<dt>Deadline</dt><dd>{{ deadline | readableDate }}</dd>{% endif %}
+      {% if window %}<dt>Usual window</dt><dd>{{ window }}</dd>{% endif %}
+      {% if official_url %}<dt>Official site</dt><dd><a href="{{ official_url }}" target="_blank" rel="noopener nofollow">{{ official_url | displayUrl }}</a></dd>{% endif %}
+    </dl>
+  </aside>
+  {% endif %}
+
+  {% include "partials/ad.njk" %}
+
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+
+  {% if isScholarship and official_url %}
+  <div class="apply-box">
+    <h2>Ready to apply?</h2>
+    <p>Applications are submitted on the official website, and they are free. Check the current deadline and eligibility there before you start.</p>
+    <div class="ctas" style="margin-top:4px">
+      <a class="btn btn-primary" href="{{ official_url }}" target="_blank" rel="noopener nofollow">Go to the official website</a>
+      <a class="btn btn-ghost" href="/services/">Get your documents reviewed</a>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="share">
+    <span>Share this with a friend:</span>
+    <a class="chip" href="https://www.facebook.com/sharer/sharer.php?u={{ (siteUrl + page.url) | urlencode }}" target="_blank" rel="noopener">Facebook</a>
+    <a class="chip" href="https://wa.me/?text={{ (title + ' ' + siteUrl + page.url) | urlencode }}" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+
+  {% include "partials/ad.njk" %}
+</div>
+
+{% if isScholarship %}
+{% set related = collections.scholarships | excludeUrl(page.url) | limit(3) %}
+<section class="wrap related">
+  <div class="sec-head"><div><div class="label">Keep looking</div><h2>More fully funded scholarships</h2></div></div>
+  <div class="grid">
+    {% for item in related %}{% include "partials/card.njk" %}{% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<div style="margin-top:64px">{% include "partials/updates.njk" %}</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ title | json | safe }},
+  "description": {{ (summary or site.description) | json | safe }},
+  "dateModified": "{{ page.date | isoDate }}",
+  "author": { "@type": "Organization", "name": "{{ site.name }}" },
+  "publisher": { "@type": "Organization", "name": "{{ site.name }}" },
+  "mainEntityOfPage": "{{ siteUrl }}{{ page.url }}"
+}
+</script>
