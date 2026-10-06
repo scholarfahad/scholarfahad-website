@@ -19,12 +19,9 @@ Along the way I saw that talent is rarely the problem. Many capable students mis
 - **BSc Accounting, first class honours**, Umaru Musa Yar'adua University, Katsina (2016–2022), best graduating student
 - **Published researcher** in green finance, Islamic social finance and development in Northern Nigeria, with a Most Published Paper Award (2026) and Best Paper Award (2025)
 - **Conference presenter** at international conferences on sustainable finance, waqf and the SDGs
-- **Student leader**, President of the EcoBiz Student Association at UIII
-- **Languages:** English, Hausa, Yoruba, Arabic and some Indonesian
-
-## Helping students has always been part of my work
-
-As president of the Nigerian Universities Accounting Students Association at my university, I led a scholarship appeal to the Office of the Accountant General of Katsina State. Ten students facing financial difficulties were selected and fully sponsored. Scholar Fahad grows from the same idea: the right information at the right time can open doors.
+- **Student leader**, Former President of the EcoBiz Student Association at UIII
+- **Languages:** English, Hausa, Yoruba, and some Indonesian
+## Why I create the platform
 
 Because I write research proposals, academic papers and scholarship applications myself, the guides on this site come from experience, not theory.
 
