@@ -21,7 +21,7 @@ Along the way I saw that talent is rarely the problem. Many capable students mis
 - **Conference presenter** at international conferences on sustainable finance, waqf and the SDGs
 - **Student leader**, Former President of the EcoBiz Student Association at UIII
 - **Languages:** English, Hausa, Yoruba, and some Indonesian
-## Why I create the platform
+## Why I created this platform
 
 Because I write research proposals, academic papers and scholarship applications myself, the guides on this site come from experience, not theory.
 
