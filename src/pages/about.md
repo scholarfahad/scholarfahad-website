@@ -19,7 +19,7 @@ Along the way I saw that talent is rarely the problem. Many capable students mis
 - **BSc Accounting, first class honours**, Umaru Musa Yar'adua University, Katsina (2016–2022), best graduating student
 - **Published researcher** in green finance, Islamic social finance and development in Northern Nigeria, with a Most Published Paper Award (2026) and Best Paper Award (2025)
 - **Conference presenter** at international conferences on sustainable finance, waqf and the SDGs
-- **Student leader**, currently President of the EcoBiz Student Association at UIII
+- **Student leader**, President of the EcoBiz Student Association at UIII
 - **Languages:** English, Hausa, Yoruba, Arabic and some Indonesian
 
 ## Helping students has always been part of my work
