@@ -1,0 +1,105 @@
+---
+layout: layouts/base.njk
+---
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="label">Free scholarships · Jobs · Application guides</div>
+      <h1>Find the funding. Write the application. <em>Submit before the deadline.</em></h1>
+      <p class="lede">Scholar Fahad lists fully funded scholarships around the world, free for everyone, with clear guides on what to submit and how to write it.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="/scholarships/">Browse scholarships</a>
+        <a class="btn btn-ghost" href="/guides/">Read the free guides</a>
+      </div>
+      <div class="proof">
+        <div><b>{{ site.followers }}</b><span>followers getting new calls</span></div>
+        <div><b>{{ collections.scholarships.length }}</b><span>scholarships listed</span></div>
+        <div><b>{{ collections.countries.length }}</b><span>host countries</span></div>
+      </div>
+    </div>
+
+    <aside class="dossier" aria-labelledby="ck-title">
+      <div class="head">
+        <h2 id="ck-title">Application checklist</h2>
+        <span class="label" id="ck-count">0 of 7</span>
+      </div>
+      <p style="font-size:14px;color:var(--muted)">What most fully funded master's and PhD scholarships ask for. Tick off what you already have.</p>
+      <div class="meter" aria-hidden="true"><i id="ck-bar"></i></div>
+      <ul class="checks">
+        <li><label><input type="checkbox" id="ck1"><span class="box"></span><span class="txt"><b>Valid passport</b><small>Usually valid for the full study period.</small></span></label></li>
+        <li><label><input type="checkbox" id="ck2"><span class="box"></span><span class="txt"><b>Degree certificate and transcripts</b><small>Certified copies, translated into English if needed.</small></span></label></li>
+        <li><label><input type="checkbox" id="ck3"><span class="box"></span><span class="txt"><b>Academic CV</b><small>Two pages or less; Europass for many EU programmes.</small></span></label></li>
+        <li><label><input type="checkbox" id="ck4"><span class="box"></span><span class="txt"><b>Motivation letter or personal statement</b><small>Typically 1–2 pages, tailored to each programme.</small></span></label></li>
+        <li><label><input type="checkbox" id="ck5"><span class="box"></span><span class="txt"><b>Two or three reference letters</b><small>Ask referees at least four weeks before the deadline.</small></span></label></li>
+        <li><label><input type="checkbox" id="ck6"><span class="box"></span><span class="txt"><b>English test result</b><small>IELTS 6.5 overall is a common minimum; some accept a medium-of-instruction letter.</small></span></label></li>
+        <li><label><input type="checkbox" id="ck7"><span class="box"></span><span class="txt"><b>Research proposal</b><small>Required for most PhD and research master's applications.</small></span></label></li>
+      </ul>
+      <p class="foot">Missing a document? <a href="/guides/">Read our guides</a> or <a href="/services/">get it reviewed</a>.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="label">Latest</div>
+        <h2>New fully funded scholarships</h2>
+      </div>
+      <p>Each listing explains who can apply, what it covers, which documents you need and where to apply officially.</p>
+    </div>
+    <div class="grid">
+      {% for item in collections.scholarships | limit(6) %}{% include "partials/card.njk" %}{% endfor %}
+    </div>
+    <div class="more"><a class="btn btn-ghost" href="/scholarships/">See all scholarships</a></div>
+  </div>
+</section>
+
+{% include "partials/ad.njk" %}
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="label">Free guides</div>
+        <h2>Write a stronger application</h2>
+      </div>
+      <p>Practical, step-by-step advice for the documents scholarship committees read most closely.</p>
+    </div>
+    <div class="guides">
+      {% for g in collections.guides | limit(6) %}
+      <a href="{{ g.url }}"><b>{{ g.data.title }}</b><span>{{ g.data.summary }}</span></a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="label">Optional help</div>
+        <h2>Want someone to check your documents?</h2>
+      </div>
+      <p>All scholarship information on this site is free. If you'd like personal feedback on your CV, letters or proposal, you can book a review.</p>
+    </div>
+    <a class="btn btn-primary" href="/services/">See review services</a>
+  </div>
+</section>
+
+{% include "partials/updates.njk" %}
+
+<script>
+  (function () {
+    var boxes = [].slice.call(document.querySelectorAll(".checks input"));
+    function update() {
+      var n = boxes.filter(function (b) { return b.checked; }).length;
+      document.getElementById("ck-count").textContent = n + " of " + boxes.length;
+      document.getElementById("ck-bar").style.width = (n / boxes.length * 100) + "%";
+      try { localStorage.setItem("sf-checks", JSON.stringify(boxes.map(function (b) { return b.checked; }))); } catch (e) {}
+    }
+    try { var s = JSON.parse(localStorage.getItem("sf-checks") || "[]"); boxes.forEach(function (b, i) { b.checked = !!s[i]; }); } catch (e) {}
+    boxes.forEach(function (b) { b.addEventListener("change", update); });
+    update();
+  })();
+</script>

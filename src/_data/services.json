@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "name": "CV review",
+      "description": "An academic or job CV that puts your strongest evidence first.",
+      "includes": ["Structure and length check", "Achievement-focused bullet points", "Europass and ATS-friendly formats"],
+      "price": ""
+    },
+    {
+      "name": "Cover letter review",
+      "description": "A one-page letter matched to the job or programme description.",
+      "includes": ["Opening that names the role", "Evidence mapped to requirements", "Clear, confident close"],
+      "price": ""
+    },
+    {
+      "name": "Motivation letter review",
+      "description": "For Chevening, DAAD, Erasmus Mundus and similar applications.",
+      "includes": ["Story and goals that connect", "Answers each essay prompt", "Word-count trimming"],
+      "price": ""
+    },
+    {
+      "name": "Research proposal guidance",
+      "description": "Feedback on PhD and research master's proposals.",
+      "includes": ["Research question and gap", "Methodology and timeline", "Fit with a supervisor's work"],
+      "price": ""
+    }
+  ]
+}

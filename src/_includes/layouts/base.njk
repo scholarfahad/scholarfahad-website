@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{% set pageTitle = (title + " | " + site.name) if title and page.url != "/" else (site.name + ": " + site.tagline) %}
+{% set pageDesc = summary or description or site.description %}
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ pageDesc }}">
+<link rel="canonical" href="{{ siteUrl }}{{ page.url }}">
+<meta property="og:type" content="{{ 'article' if layout == 'layouts/post.njk' else 'website' }}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:title" content="{{ title or site.name }}">
+<meta property="og:description" content="{{ pageDesc }}">
+<meta property="og:url" content="{{ siteUrl }}{{ page.url }}">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+{% if site.adsense_client %}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense_client }}" crossorigin="anonymous"></script>
+{% endif %}
+{% block head %}{% endblock %}
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="seal">SF</span>{{ site.name }}</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="links" id="nav" aria-label="Main">
+      {% set navItems = [["/scholarships/", "Scholarships"], ["/guides/", "Guides"], ["/services/", "Services"], ["/about/", "About"], ["/contact/", "Contact"]] %}
+      {% for item in navItems %}
+      <a href="{{ item[0] }}"{% if page.url.startsWith(item[0]) %} aria-current="page"{% endif %}>{{ item[1] }}</a>
+      {% endfor %}
+    </nav>
+    <a class="btn btn-primary cta-fb" href="{{ site.facebook }}" target="_blank" rel="noopener">Follow on Facebook</a>
+  </div>
+</header>
+
+<main id="main">
+{{ content | safe }}
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="/"><span class="seal">SF</span>{{ site.name }}</a>
+        <p class="warn" style="margin-top:14px;max-width:52ch"><b>Stay safe:</b> official government scholarships are free to apply for. Never pay anyone who promises a guaranteed award or asks for an "application fee" on a provider's behalf.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/scholarships/">All scholarships</a></li>
+          <li><a href="/scholarships/countries/">By country</a></li>
+          <li><a href="/guides/">Application guides</a></li>
+          <li><a href="/services/">Document reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy policy</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© {{ buildDate | year }} {{ site.name }}. Scholarship information is free for everyone.</p>
+  </div>
+</footer>
+<script>
+  (function () {
+    var b = document.querySelector(".menu-btn"), n = document.getElementById("nav");
+    if (b) b.addEventListener("click", function () {
+      var o = n.classList.toggle("open"); b.setAttribute("aria-expanded", o ? "true" : "false");
+    });
+  })();
+</script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

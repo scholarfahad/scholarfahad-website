@@ -1,0 +1,22 @@
+<section class="block" style="border-top:0">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <h2>Never miss a scholarship deadline</h2>
+        <p>Get new fully funded scholarships in your inbox every week. Free, and you can unsubscribe anytime.</p>
+        <form class="inline-form" name="updates" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="company">
+          <input type="hidden" name="form-name" value="updates">
+          <p class="hidden"><label>Leave this empty <input name="company"></label></p>
+          <label class="hidden" for="upd-email">Email address</label>
+          <input id="upd-email" type="email" name="email" placeholder="Your email address" required autocomplete="email">
+          <button class="btn" type="submit">Subscribe</button>
+        </form>
+      </div>
+      <div class="btns">
+        <a class="btn" href="{{ site.facebook }}" target="_blank" rel="noopener">Follow on Facebook</a>
+        {% if site.whatsapp_channel %}<a class="btn alt" href="{{ site.whatsapp_channel }}" target="_blank" rel="noopener">Join the WhatsApp channel</a>{% endif %}
+        <a class="btn alt" href="{{ site.youtube }}" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>

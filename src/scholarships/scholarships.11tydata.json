@@ -1,0 +1,5 @@
+{
+  "layout": "layouts/post.njk",
+  "permalink": "/scholarships/{{ page.fileSlug }}/",
+  "funding": "Fully funded"
+}

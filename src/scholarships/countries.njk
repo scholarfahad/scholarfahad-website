@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+title: Scholarships by country
+description: Fully funded scholarships grouped by the country where you would study.
+permalink: /scholarships/countries/
+---
+<div class="wrap">
+  <header class="page-head">
+    <div class="label">Scholarships</div>
+    <h1>Scholarships by country</h1>
+    <p>Choose where you'd like to study to see every scholarship listed for that country.</p>
+  </header>
+  <div class="guides">
+    {% for c in collections.countries %}
+    <a href="/scholarships/countries/{{ c.slug }}/"><b>{{ c.name }}</b><span>{{ c.items.length }} scholarship{% if c.items.length != 1 %}s{% endif %}</span></a>
+    {% endfor %}
+  </div>
+</div>

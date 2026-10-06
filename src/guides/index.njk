@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+title: Application guides
+description: Free guides to writing CVs, motivation letters, research proposals and other scholarship application documents.
+permalink: /guides/
+---
+<div class="wrap">
+  <header class="page-head">
+    <div class="label">Free guides</div>
+    <h1>Application guides</h1>
+    <p>Step-by-step advice on the documents scholarship committees read most closely, and how to stay safe while applying.</p>
+  </header>
+  <div class="guides">
+    {% for g in collections.guides %}
+    <a href="{{ g.url }}"><b>{{ g.data.title }}</b><span>{{ g.data.summary }}</span></a>
+    {% endfor %}
+  </div>
+</div>

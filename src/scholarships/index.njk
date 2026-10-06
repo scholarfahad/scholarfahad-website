@@ -1,0 +1,53 @@
+---
+layout: layouts/base.njk
+title: Fully funded scholarships
+description: Browse fully funded scholarships for undergraduate, master's and PhD study, with eligibility, required documents and official application links.
+permalink: /scholarships/
+---
+<div class="wrap">
+  <header class="page-head">
+    <div class="label">Scholarships</div>
+    <h1>Fully funded scholarships</h1>
+    <p>Search by name or country, or filter by study level. Every listing links to the official website, where applying is free.</p>
+  </header>
+
+  <div class="tools">
+    <label class="hidden" for="q">Search scholarships</label>
+    <input class="search" id="q" type="search" placeholder="Search by name or country, e.g. Germany" autocomplete="off">
+    <div class="filters" role="group" aria-label="Filter by study level">
+      <button class="chip" type="button" data-f="all" aria-pressed="true">All levels</button>
+      <button class="chip" type="button" data-f="undergraduate" aria-pressed="false">Undergraduate</button>
+      <button class="chip" type="button" data-f="masters" aria-pressed="false">Master's</button>
+      <button class="chip" type="button" data-f="phd" aria-pressed="false">PhD</button>
+    </div>
+  </div>
+
+  <div class="grid" id="list">
+    {% for item in collections.scholarships %}{% include "partials/card.njk" %}{% endfor %}
+  </div>
+  <p class="empty" id="empty" hidden>No scholarships match that search. Try a country name or clear the filters.</p>
+  <p class="note">Browse <a href="/scholarships/countries/">scholarships by country</a>. Always confirm current dates and eligibility on the official website before applying.</p>
+</div>
+{% include "partials/ad.njk" %}
+<script>
+  (function () {
+    var cards = [].slice.call(document.querySelectorAll("#list .card"));
+    var q = document.getElementById("q"), empty = document.getElementById("empty"), level = "all";
+    function apply() {
+      var term = q.value.trim().toLowerCase(), shown = 0;
+      cards.forEach(function (c) {
+        var ok = (level === "all" || c.dataset.levels.split(" ").indexOf(level) > -1) && (!term || c.dataset.search.indexOf(term) > -1);
+        c.hidden = !ok; if (ok) shown++;
+      });
+      empty.hidden = shown > 0;
+    }
+    q.addEventListener("input", apply);
+    [].forEach.call(document.querySelectorAll(".chip[data-f]"), function (b) {
+      b.addEventListener("click", function () {
+        level = b.dataset.f;
+        [].forEach.call(document.querySelectorAll(".chip[data-f]"), function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        apply();
+      });
+    });
+  })();
+</script>

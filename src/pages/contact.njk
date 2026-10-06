@@ -1,0 +1,26 @@
+---
+title: Contact
+description: Contact Scholar Fahad with questions, scholarship suggestions or partnership enquiries.
+intro: Questions about a listing, a scholarship you'd like us to share, or a partnership enquiry? Send us a message.
+---
+<p>The fastest way to reach us is a message to the <a href="{{ site.facebook }}" target="_blank" rel="noopener">Scholar Fahad Facebook page</a>.{% if site.contact_email %} You can also email <strong>{{ site.contact_email }}</strong>.{% endif %}</p>
+<p>Please note that we can't apply for scholarships on your behalf or tell you whether you'll be selected. For eligibility questions, the scholarship's official website is always the final word.</p>
+
+<form class="form" name="contact" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="company" style="margin-top:28px">
+  <input type="hidden" name="form-name" value="contact">
+  <p class="hidden"><label>Leave this empty <input name="company"></label></p>
+  <div class="two">
+    <label for="c-name">Name<input id="c-name" name="name" required autocomplete="name"></label>
+    <label for="c-email">Email address<input id="c-email" type="email" name="email" required autocomplete="email"></label>
+  </div>
+  <label for="c-topic">Topic
+    <select id="c-topic" name="topic">
+      <option>Question about a scholarship</option>
+      <option>Suggest a scholarship</option>
+      <option>Partnership or sponsored post</option>
+      <option>Something else</option>
+    </select>
+  </label>
+  <label for="c-msg">Message<textarea id="c-msg" name="message" required></textarea></label>
+  <div><button class="btn btn-primary" type="submit">Send message</button></div>
+</form>

@@ -1,0 +1,58 @@
+---
+layout: layouts/base.njk
+title: Document review services
+description: Optional personal feedback on your CV, cover letter, motivation letter or research proposal from Scholar Fahad.
+permalink: /services/
+---
+<div class="wrap">
+  <header class="page-head">
+    <div class="label">Optional help</div>
+    <h1>Document review services</h1>
+    <p>Everything on this site is free. If you want personal, line-by-line feedback on your application documents, you can book a review here. You keep your own voice; we help you make it clearer and stronger.</p>
+  </header>
+
+  <div class="services">
+    {% for s in services.items %}
+    <article class="svc">
+      <h3>{{ s.name }}</h3>
+      <p>{{ s.description }}</p>
+      <ul>{% for p in s.includes %}<li>{{ p }}</li>{% endfor %}</ul>
+      <div class="price">{{ s.price or "Price on request" }}</div>
+    </article>
+    {% endfor %}
+  </div>
+
+  <div class="steps">
+    <div class="step"><div><b>Book a review</b><p>Fill in the form below with the service you need and your deadline.</p></div></div>
+    <div class="step"><div><b>Send your draft</b><p>We reply with the price, payment details and how to send your document.</p></div></div>
+    <div class="step"><div><b>Get detailed feedback</b><p>Receive comments and suggested improvements, then make the final edits in your own words.</p></div></div>
+  </div>
+
+  <section class="block" id="book" style="margin-top:56px">
+    <div class="sec-head"><div><div class="label">Booking</div><h2>Book a review</h2></div><p>We usually reply within two working days. Please book at least a week before your deadline.</p></div>
+    <form class="form" name="booking" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="company">
+      <input type="hidden" name="form-name" value="booking">
+      <p class="hidden"><label>Leave this empty <input name="company"></label></p>
+      <div class="two">
+        <label for="b-name">Full name<input id="b-name" name="name" required autocomplete="name"></label>
+        <label for="b-email">Email address<input id="b-email" type="email" name="email" required autocomplete="email"></label>
+      </div>
+      <div class="two">
+        <label for="b-whatsapp">WhatsApp number <span class="hint">Optional, with country code</span><input id="b-whatsapp" name="whatsapp" autocomplete="tel"></label>
+        <label for="b-service">Service
+          <select id="b-service" name="service" required>
+            <option value="">Choose a service</option>
+            {% for s in services.items %}<option>{{ s.name }}</option>{% endfor %}
+          </select>
+        </label>
+      </div>
+      <div class="two">
+        <label for="b-target">Scholarship, programme or job<input id="b-target" name="target" placeholder="e.g. Chevening 2027" required></label>
+        <label for="b-deadline">Your deadline<input id="b-deadline" type="date" name="deadline"></label>
+      </div>
+      <label for="b-msg">Anything we should know? <span class="hint">Optional</span><textarea id="b-msg" name="message"></textarea></label>
+      <div><button class="btn btn-primary" type="submit">Send booking request</button></div>
+      <p class="hint" style="font-size:13px;color:var(--muted)">By sending this form you agree to our <a href="/privacy-policy/">privacy policy</a>. We never guarantee that an application will win.</p>
+    </form>
+  </section>
+</div>
