@@ -1,3 +1,5 @@
+import fs from "node:fs";
+
 export default function (eleventyConfig) {
   // Files copied to the site as they are
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
@@ -7,10 +9,12 @@ export default function (eleventyConfig) {
   eleventyConfig.ignores.add("src/admin/**");
   eleventyConfig.ignores.add("src/static/**");
 
-  // The live address: Netlify provides it during builds (custom domain once connected)
-  eleventyConfig.addGlobalData("siteUrl", () =>
-    (process.env.URL || "https://scholarfahad.com").replace(/\/$/, "")
-  );
+  // The live address, set in Site settings ("Website address")
+  eleventyConfig.addGlobalData("siteUrl", () => {
+    let url = "";
+    try { url = JSON.parse(fs.readFileSync("src/_data/site.json", "utf8")).url || ""; } catch (e) {}
+    return (url || process.env.URL || "https://scholarfahad.com").replace(/\/$/, "");
+  });
   eleventyConfig.addGlobalData("buildDate", () => new Date());
 
   const levelNames = { undergraduate: "Undergraduate", masters: "Master's", phd: "PhD", other: "Other" };

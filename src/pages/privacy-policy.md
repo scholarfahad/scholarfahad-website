@@ -10,7 +10,7 @@ This policy explains what information {{ site.name }} ("we") collects when you u
 
 When you subscribe to updates, book a review or send a message through a form on this site, we receive the details you enter, such as your name, email address, WhatsApp number and message. We use this information only to reply to you, provide the service you asked for, or send the updates you signed up for. We do not sell your information.
 
-Form submissions are processed and stored by our hosting provider, Netlify. You can ask us to delete your information at any time through the [contact page](/contact/).
+Form submissions are delivered to us by our form provider, Web3Forms. You can ask us to delete your information at any time through the [contact page](/contact/).
 
 ## Information collected automatically
 

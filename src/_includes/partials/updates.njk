@@ -4,9 +4,8 @@
       <div>
         <h2>Never miss a scholarship deadline</h2>
         <p>Get new fully funded scholarships in your inbox every week. Free, and you can unsubscribe anytime.</p>
-        <form class="inline-form" name="updates" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="company">
-          <input type="hidden" name="form-name" value="updates">
-          <p class="hidden"><label>Leave this empty <input name="company"></label></p>
+        <form class="inline-form" name="updates" method="POST" action="https://api.web3forms.com/submit">
+          {% set formSubject = "New weekly updates subscriber" %}{% include "partials/form-fields.njk" %}
           <label class="hidden" for="upd-email">Email address</label>
           <input id="upd-email" type="email" name="email" placeholder="Your email address" required autocomplete="email">
           <button class="btn" type="submit">Subscribe</button>

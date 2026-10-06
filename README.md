@@ -22,4 +22,4 @@ Each save updates the live site within a few minutes.
 - `src/assets/style.css` — design
 - `src/static/` — files copied as-is (Google verification file, and ads.txt later)
 
-Built with Eleventy and hosted on Netlify.
+Built with Eleventy and hosted on Cloudflare Pages. Forms are handled by Web3Forms (key in Site settings).

@@ -4,8 +4,8 @@ backend:
   repo: scholarfahad/scholarfahad-website
   branch: main
 
-site_url: https://scholarfahad.com
-display_url: https://scholarfahad.com
+site_url: https://scholarfahad.pages.dev
+display_url: https://scholarfahad.pages.dev
 media_folder: src/assets/uploads
 public_folder: /assets/uploads
 
@@ -71,11 +71,13 @@ collections:
           - { name: name, label: Site name, widget: string }
           - { name: tagline, label: Tagline, widget: string }
           - { name: description, label: Description for Google, widget: text }
+          - { name: url, label: Website address, widget: string, hint: "The site's main address, e.g. https://scholarfahad.com. Change this when you connect a new domain." }
           - { name: followers, label: Follower count shown on homepage, widget: string, hint: "e.g. 71K" }
           - { name: facebook, label: Facebook page link, widget: string }
           - { name: youtube, label: YouTube link, widget: string }
           - { name: whatsapp_channel, label: WhatsApp channel link, widget: string, required: false }
           - { name: contact_email, label: Contact email, widget: string, required: false }
+          - { name: form_key, label: Web3Forms access key, widget: string, required: false, hint: "From web3forms.com. Form messages are sent to the email linked to this key." }
           - { name: adsense_client, label: AdSense publisher ID, widget: string, required: false, hint: "Looks like ca-pub-1234567890123456. Leave empty until AdSense approves you." }
       - name: services
         label: Review services and prices
