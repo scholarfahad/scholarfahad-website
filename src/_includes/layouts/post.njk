@@ -15,10 +15,12 @@ layout: layouts/base.njk
     <h1>{{ title }}</h1>
     <div class="meta">
       <span>Updated {{ page.date | readableDate }}</span>
+      {% if sponsored %}<span class="fund sponsored">Sponsored</span>{% endif %}
       {% if st %}<span class="status {{ st.cls }}">{{ st.label }}</span>{% endif %}
     </div>
   </header>
 
+  {% if sponsored %}<p class="note" style="margin:0 0 20px">This post is sponsored. We only feature programmes we believe are legitimate, and applying is always done on the official website.</p>{% endif %}
   {% if isScholarship %}
   <aside class="factbox" aria-label="Key facts">
     <dl class="facts">

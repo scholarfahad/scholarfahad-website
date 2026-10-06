@@ -116,6 +116,7 @@ section.block { padding-block: 64px; border-top: 1px solid var(--line); }
 .country { font: 500 12px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
 a.country:hover { color: var(--green); }
 .fund { font: 600 12px/1 var(--body); padding: 5px 9px; border-radius: 99px; background: var(--seal-soft); color: var(--seal); white-space: nowrap; }
+.fund.sponsored { background: var(--green-soft); color: var(--green); }
 .card h3 { font-size: 21px; }
 .card h3 a { color: var(--ink); text-decoration: none; }
 .card h3 a:hover { color: var(--green); }

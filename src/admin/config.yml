@@ -42,6 +42,7 @@ collections:
       - { name: deadline, label: Exact deadline, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", required: false, hint: "Leave empty if you only know the usual window" }
       - { name: window, label: Usual application window, widget: string, required: false, hint: "e.g. Usually opens in August and closes in November" }
       - { name: official_url, label: Official website link, widget: string, hint: "Always link to the provider's own site" }
+      - { name: sponsored, label: Sponsored post, widget: boolean, default: false, required: false, hint: "Turn on for paid posts. A 'Sponsored' label is shown." }
       - { name: summary, label: Short summary, widget: text, hint: "One or two sentences. Shown on listing cards and in Google results." }
       - { name: body, label: Full details, widget: markdown, hint: "Suggested sections: What it covers, Who can apply, Documents you'll need, How to apply, Tips" }
 
@@ -89,3 +90,26 @@ collections:
               - { name: description, label: Description, widget: string }
               - { name: includes, label: "What's included", widget: list, field: { name: item, label: Item, widget: string } }
               - { name: price, label: Price, widget: string, required: false, hint: "e.g. ₦15,000 or $20. Leave empty to show 'Price on request'." }
+      - name: advertise
+        label: Advertise page
+        file: src/_data/advertise.json
+        format: json
+        fields:
+          - { name: intro, label: Introduction, widget: text }
+          - name: audience
+            label: Audience numbers
+            widget: list
+            hint: Leave a value empty to hide it
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: value, label: Number, widget: string, required: false, hint: "e.g. 45K" }
+          - { name: audience_profile, label: About your audience, widget: list, field: { name: item, label: Point, widget: string } }
+          - name: packages
+            label: Packages
+            widget: list
+            fields:
+              - { name: name, label: Package name, widget: string }
+              - { name: description, label: Description, widget: string }
+              - { name: includes, label: "What's included", widget: list, field: { name: item, label: Item, widget: string } }
+              - { name: price, label: Price, widget: string, required: false, hint: "e.g. $50. Leave empty to show 'Contact for rates'." }
+          - { name: who_for, label: Who advertises with you, widget: list, field: { name: item, label: Type of advertiser, widget: string } }
