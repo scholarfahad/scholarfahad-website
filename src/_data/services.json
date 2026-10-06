@@ -8,7 +8,7 @@
         "Achievement-focused bullet points",
         "Europass and ATS-friendly formats"
       ],
-      "price": "15$"
+      "price": "$15"
     },
     {
       "name": "Cover letter review",
@@ -18,7 +18,7 @@
         "Evidence mapped to requirements",
         "Clear, confident close"
       ],
-      "price": "10$"
+      "price": "$10"
     },
     {
       "name": "Motivation letter review",
@@ -28,7 +28,7 @@
         "Answers each essay prompt",
         "Word-count trimming"
       ],
-      "price": "15$"
+      "price": "$15"
     },
     {
       "name": "Research proposal guidance",
@@ -38,7 +38,7 @@
         "Methodology and timeline",
         "Fit with a supervisor's work"
       ],
-      "price": "50$"
+      "price": "$50"
     }
   ]
 }
