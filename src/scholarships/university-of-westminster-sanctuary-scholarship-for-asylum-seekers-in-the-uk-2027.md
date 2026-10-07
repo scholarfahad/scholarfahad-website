@@ -12,70 +12,54 @@ sponsored: false
 date: 2026-10-07
 ---
 
-The \*\*University of Westminster\*\* in London offers \*\*Postgraduate Sanctuary Scholarships\*\* to help people who have been forced to leave their home countries continue their education in the UK. The scholarship pays \*\*full tuition fees\*\* for a master's degree plus \*\*£1,000 a month\*\* for living costs.
+The **University of Westminster** in London offers **Postgraduate Sanctuary Scholarships** to help people who have been forced to leave their home countries continue their education in the UK. The scholarship pays **full tuition fees** for a master's degree plus **£1,000 a month** for living costs.
 
-\> \*\*Important: this scholarship is only for people already living in the UK\*\* who are seeking asylum, or who have leave to remain as a result of an asylum application. You can't apply from outside the UK, and international students on a student visa aren't eligible.
+> **Important: this scholarship is only for people already living in the UK** who are seeking asylum, or who have leave to remain as a result of an asylum application. You can't apply from outside the UK, and international students on a student visa aren't eligible.
 
-\## What the scholarship covers
+## What the scholarship covers
 
-\- \*\*Full tuition fee waiver\*\* for a full-time master's course
+- **Full tuition fee waiver** for a full-time master's course
+- **£1,000 per month** for living costs, for up to **12 months**
+- **Two scholarships** are available for this round
 
-\- \*\*£1,000 per month\*\* for living costs, for up to \*\*12 months\*\*
-
-\- \*\*Two scholarships\*\* are available for this round
-
-\## Who can apply
+## Who can apply
 
 You must:
 
-\- \*\*Live in the UK\*\*
-
-\- Hold one of these immigration statuses \*\*before\*\* you apply:
-
-  \- \*\*UK asylum seeker\*\*
-
-  \- \*\*Discretionary leave to remain\*\* as a result of an asylum application
-
-  \- \*\*Limited leave to remain\*\* as a result of an asylum application
-
-\- Have an \*\*offer for a full-time master's course\*\* at the University of Westminster starting in \*\*January 2027\*\*
-
-\- \*\*Not already hold a master's degree\*\*
-
-\- \*\*Not be eligible\*\* for postgraduate loans from Student Finance
+- **Live in the UK**
+- Hold one of these immigration statuses **before** you apply:
+  - **UK asylum seeker**
+  - **Discretionary leave to remain** as a result of an asylum application
+  - **Limited leave to remain** as a result of an asylum application
+- Have an **offer for a full-time master's course** at the University of Westminster starting in **January 2027**
+- **Not already hold a master's degree**
+- **Not be eligible** for postgraduate loans from Student Finance
 
 Postgraduate diplomas, professional qualifications (such as ACCA, CIMA or RIBA Part III) and conversion courses (such as the Graduate Diploma in Law) aren't covered.
 
-\## Key date
+## Key date
 
-\*\*Deadline: Monday 2 November 2026, 5:00 PM (UK time)\*\*
+**Deadline: Monday 2 November 2026, 5:00 PM (UK time)**
 
-\## How to apply
+## How to apply
 
-1\. \*\*Apply for a full-time master's course\*\* at the University of Westminster that starts in \*\*January 2027\*\*, and get your offer.
+1. **Apply for a full-time master's course** at the University of Westminster that starts in **January 2027**, and get your offer.
+2. **Download the Sanctuary Scholarship application form** from the official scholarship page.
+3. **Email the completed form** with your evidence attached **as PDF files**, using the email address on the official page.
 
-2\. \*\*Download the Sanctuary Scholarship application form\*\* from the official scholarship page.
-
-3\. \*\*Email the completed form\*\* with your evidence attached \*\*as PDF files\*\*, using the email address on the official page.
-
-\## Evidence you'll need
+## Evidence you'll need
 
 The application form asks for proof of your immigration status. Check the current form for the exact list, but expect to provide:
 
-\- A \*\*Home Office letter\*\* confirming your immigration status
+- A **Home Office letter** confirming your immigration status
+- Your **Application Registration Card** (for asylum seekers) or **eVisa / residence permit** details
+- Your **passport**, if you have one
+- Your **offer letter** from the University of Westminster
 
-\- Your \*\*Application Registration Card\*\* (for asylum seekers) or \*\*eVisa / residence permit\*\* details
+## Tips
 
-\- Your \*\*passport\*\*, if you have one
-
-\- Your \*\*offer letter\*\* from the University of Westminster
-
-\## Tips
-
-\- \*\*Get your course offer first.\*\* You can't receive the scholarship without an offer for a January 2027 course, and admissions take time.
-
-\- \*\*Explain your story and goals clearly\*\* in the application: what you want to study and how it will help you rebuild your future.
-
-\- \*\*Ask for help.\*\* Charities that support refugees and asylum seekers in the UK, such as the Refugee Council or Refugee Support Network, often help with university applications.
+- **Get your course offer first.** You can't receive the scholarship without an offer for a January 2027 course, and admissions take time.
+- **Explain your story and goals clearly** in the application: what you want to study and how it will help you rebuild your future.
+- **Ask for help.** Charities that support refugees and asylum seekers in the UK, such as the Refugee Council or Refugee Support Network, often help with university applications.
 
 Know someone in the UK this could help? Please share it with them.
