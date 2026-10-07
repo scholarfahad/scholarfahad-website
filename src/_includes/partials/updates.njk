@@ -3,13 +3,14 @@
     <div class="contact">
       <div>
         <h2>Never miss a scholarship deadline</h2>
-        <p>Get new fully funded scholarships in your inbox every week. Free, and you can unsubscribe anytime.</p>
-        <form class="inline-form" name="updates" method="POST" action="https://api.web3forms.com/submit">
-          {% set formSubject = "New weekly updates subscriber" %}{% include "partials/form-fields.njk" %}
+        <p>Get new fully funded scholarships in your inbox every week. Free, and you can unsubscribe anytime. You'll get a quick email to confirm.</p>
+        {% if site.kit_form_id %}
+        <form class="inline-form" name="updates" method="POST" action="https://app.kit.com/forms/{{ site.kit_form_id }}/subscriptions">
           <label class="hidden" for="upd-email">Email address</label>
-          <input id="upd-email" type="email" name="email" placeholder="Your email address" required autocomplete="email">
+          <input id="upd-email" type="email" name="email_address" placeholder="Your email address" required autocomplete="email">
           <button class="btn" type="submit">Subscribe</button>
         </form>
+        {% endif %}
       </div>
       <div class="btns">
         <a class="btn" href="{{ site.facebook }}" target="_blank" rel="noopener">Follow on Facebook</a>

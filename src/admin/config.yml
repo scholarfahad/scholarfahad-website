@@ -82,6 +82,7 @@ collections:
           - { name: whatsapp_channel, label: WhatsApp channel link, widget: string, required: false }
           - { name: contact_email, label: Contact email, widget: string, required: false }
           - { name: form_key, label: Web3Forms access key, widget: string, required: false, hint: "From web3forms.com. Form messages are sent to the email linked to this key." }
+          - { name: kit_form_id, label: Kit newsletter form ID, widget: string, required: false, hint: "The number from your Kit form, e.g. 10013234" }
           - { name: adsense_client, label: AdSense publisher ID, widget: string, required: false, hint: "Looks like ca-pub-1234567890123456. Leave empty until AdSense approves you." }
       - name: services
         label: Review services and prices

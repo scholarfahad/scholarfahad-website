@@ -10,7 +10,7 @@ This policy explains what information {{ site.name }} ("we") collects when you u
 
 When you subscribe to updates, book a review or send a message through a form on this site, we receive the details you enter, such as your name, email address, WhatsApp number and message. We use this information only to reply to you, provide the service you asked for, or send the updates you signed up for. We do not sell your information.
 
-Form submissions are delivered to us by our form provider, Web3Forms. You can ask us to delete your information at any time through the [contact page](/contact/).
+Messages and bookings are delivered to us by our form provider, Web3Forms. If you subscribe to scholarship updates, your email address is stored by our newsletter provider, Kit, and every email includes a link to unsubscribe. You can ask us to delete your information at any time through the [contact page](/contact/).
 
 ## Information collected automatically
 
