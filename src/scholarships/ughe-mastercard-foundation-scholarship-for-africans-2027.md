@@ -3,7 +3,7 @@ title: UGHE Mastercard Foundation Scholarship for Africans 2027
 country: Rwanda
 official_url: https://ughe.org/admission/
 deadline: ''
-summary: A fully funded 18-month Master of Science in Global Health Delivery at the University of Global Health Equity in Rwanda, for young Africans through the Mastercard Foundation Scholars.
+summary: A fully funded 18-month Master of Science in Global Health Delivery at the University of Global Health Equity in Rwanda, for young Africans through the Mastercard Foundation Scholars Program.
 levels:
   - masters
 funding: Fully funded
