@@ -78,6 +78,7 @@ collections:
           - { name: url, label: Website address, widget: string, hint: "The site's main address, e.g. https://scholarfahad.com. Change this when you connect a new domain." }
           - { name: followers, label: Follower count shown on homepage, widget: string, hint: "e.g. 71K" }
           - { name: facebook, label: Facebook page link, widget: string }
+          - { name: instagram, label: Instagram link, widget: string, required: false }
           - { name: youtube, label: YouTube link, widget: string }
           - { name: whatsapp_channel, label: WhatsApp channel link, widget: string, required: false }
           - { name: contact_email, label: Contact email, widget: string, required: false }

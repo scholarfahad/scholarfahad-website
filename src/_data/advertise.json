@@ -3,6 +3,7 @@
   "audience": [
     { "label": "Total followers", "value": "71K" },
     { "label": "Facebook page", "value": "" },
+    { "label": "Instagram", "value": "" },
     { "label": "WhatsApp channel", "value": "" },
     { "label": "Monthly website visitors", "value": "" }
   ],

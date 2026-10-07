@@ -208,6 +208,8 @@ footer.foot h4 { margin: 0 0 8px; font: 500 12px/1.4 var(--mono); letter-spacing
 footer.foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
 footer.foot a { color: var(--muted); }
 footer.foot .warn b { color: var(--ink); }
+footer.foot .social { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 14px; }
+footer.foot .social a { font-weight: 600; color: var(--green); }
 footer.foot .copy { margin-top: 28px; }
 @media (max-width: 700px) { footer.foot .cols { grid-template-columns: 1fr 1fr; } footer.foot .cols > :first-child { grid-column: 1 / -1; } }
 
