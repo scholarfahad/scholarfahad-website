@@ -4,7 +4,8 @@ country: United Kingdom
 official_url: https://www.westminster.ac.uk/study/fees-and-funding/scholarships/postgraduate-sanctuary-scholarship
 deadline: 2026-11-02
 summary: A full tuition waiver plus £1,000 a month for a master's at the University of Westminster in London, for people seeking asylum in the UK. For January 2027 courses.
-levels: []
+levels:
+  - masters
 funding: Fully funded
 window: ''
 sponsored: false
