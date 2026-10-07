@@ -1,13 +1,13 @@
 {% set s = item.data %}
 {% set st = s.deadline | deadlineStatus %}
-<article class="card" data-levels="{{ s.levels | join(' ') }}" data-search="{{ (s.title + ' ' + s.country + ' ' + (s.summary or '')) | lower }}">
+<article class="card" data-levels="{{ (s.levels or []) | join(' ') }}" data-search="{{ (s.title + ' ' + (s.country or '') + ' ' + (s.summary or '')) | lower }}">
   <div class="row">
-    <a class="country" href="/scholarships/countries/{{ s.country | slug2 }}/">{{ s.country }}</a>
+    {% if s.country %}<a class="country" href="/scholarships/countries/{{ s.country | slug2 }}/">{{ s.country }}</a>{% else %}<span class="country">Opportunity</span>{% endif %}
     <span>{% if s.sponsored %}<span class="fund sponsored">Sponsored</span> {% endif %}<span class="fund">{{ s.funding or "Fully funded" }}</span></span>
   </div>
   <h3><a href="{{ item.url }}">{{ s.title }}</a></h3>
   <p>{{ s.summary }}</p>
-  <div class="levels">{% for l in s.levels %}<span>{{ l | levelName }}</span>{% endfor %}</div>
+  <div class="levels">{% for l in (s.levels or []) %}<span>{{ l | levelName }}</span>{% endfor %}</div>
   <dl>
     {% if s.deadline %}<dt>Deadline</dt><dd>{{ s.deadline | readableDate }}{% if st %} <span class="status {{ st.cls }}">{{ st.label }}</span>{% endif %}</dd>
     {% elif s.window %}<dt>Window</dt><dd>{{ s.window }}</dd>{% endif %}

@@ -1,17 +1,17 @@
 ---
 layout: layouts/base.njk
 ---
-{% set isScholarship = country %}
+{% set isScholarship = page.url.startsWith('/scholarships/') %}
 {% set st = deadline | deadlineStatus %}
 <div class="wrap narrow">
   <nav class="crumbs" aria-label="Breadcrumb">
     <a href="/">Home</a> /
-    {% if isScholarship %}<a href="/scholarships/">Scholarships</a> / <a href="/scholarships/countries/{{ country | slug2 }}/">{{ country }}</a>
+    {% if isScholarship %}<a href="/scholarships/">Scholarships</a>{% if country %} / <a href="/scholarships/countries/{{ country | slug2 }}/">{{ country }}</a>{% endif %}
     {% else %}<a href="/guides/">Guides</a>{% endif %}
   </nav>
 
   <header class="article-head">
-    {% if isScholarship %}<div class="label">{{ country }} · {{ funding or "Fully funded" }}</div>{% else %}<div class="label">Application guide</div>{% endif %}
+    {% if isScholarship %}<div class="label">{% if country %}{{ country }} · {% endif %}{{ funding or "Fully funded" }}</div>{% else %}<div class="label">Application guide</div>{% endif %}
     <h1>{{ title }}</h1>
     <div class="meta">
       <span>Updated {{ page.date | readableDate }}</span>
@@ -24,8 +24,8 @@ layout: layouts/base.njk
   {% if isScholarship %}
   <aside class="factbox" aria-label="Key facts">
     <dl class="facts">
-      <dt>Host country</dt><dd>{{ country }}</dd>
-      <dt>Study level</dt><dd>{% for l in levels %}{{ l | levelName }}{% if not loop.last %}, {% endif %}{% endfor %}</dd>
+      {% if country %}<dt>Host country</dt><dd>{{ country }}</dd>{% endif %}
+      {% if levels and levels.length %}<dt>Study level</dt><dd>{% for l in levels %}{{ l | levelName }}{% if not loop.last %}, {% endif %}{% endfor %}</dd>{% endif %}
       <dt>Funding</dt><dd>{{ funding or "Fully funded" }}</dd>
       {% if deadline %}<dt>Deadline</dt><dd>{{ deadline | readableDate }}</dd>{% endif %}
       {% if window %}<dt>Usual window</dt><dd>{{ window }}</dd>{% endif %}

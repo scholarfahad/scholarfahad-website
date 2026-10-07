@@ -4,8 +4,8 @@ backend:
   repo: scholarfahad/scholarfahad-website
   branch: main
 
-site_url: https://scholarfahad.pages.dev
-display_url: https://scholarfahad.pages.dev
+site_url: https://scholarfahad.com
+display_url: https://scholarfahad.com
 media_folder: src/assets/uploads
 public_folder: /assets/uploads
 
@@ -20,31 +20,35 @@ collections:
     create: true
     slug: "{{slug}}"
     sortable_fields: [date, title, country]
-    summary: "{{title}} — {{country}}"
+    summary: "{{title}}"
     fields:
+      # The essentials: fill these in for every post
       - { name: title, label: Title, widget: string, hint: "e.g. Chevening Scholarships (UK)" }
-      - { name: date, label: Date posted or updated, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD" }
-      - { name: country, label: Host country, widget: string, hint: "Use the same spelling every time, e.g. United Kingdom, Germany" }
+      - { name: country, label: Host country, widget: string, hint: "e.g. United Kingdom, Germany, Europe (multi-country). Use the same spelling every time." }
+      - { name: official_url, label: Official website link, widget: string, hint: "Paste the provider's own link (starts with https://)" }
+      - { name: deadline, label: Deadline, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", required: false, hint: "Pick the closing date. If it varies, leave it empty and write it in Usual application window below." }
+      - { name: summary, label: Short summary, widget: text, hint: "One or two sentences. Shown on listing cards and in Google." }
+      - { name: body, label: Full details, widget: markdown, required: false, hint: "Optional. Paste your post text here: what it covers, who can apply, how to apply." }
+      # Optional extras: safe to skip
       - name: levels
-        label: Study levels
+        label: Study levels (optional)
         widget: select
         multiple: true
+        required: false
         options:
           - { label: Undergraduate, value: undergraduate }
           - { label: "Master's", value: masters }
           - { label: PhD, value: phd }
-          - { label: Other, value: other }
+          - { label: "Other (volunteering, jobs, courses)", value: other }
       - name: funding
-        label: Funding
+        label: Funding (optional)
         widget: select
         default: Fully funded
+        required: false
         options: [Fully funded, Partially funded, Tuition only]
-      - { name: deadline, label: Exact deadline, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", required: false, hint: "Leave empty if you only know the usual window" }
-      - { name: window, label: Usual application window, widget: string, required: false, hint: "e.g. Usually opens in August and closes in November" }
-      - { name: official_url, label: Official website link, widget: string, hint: "Always link to the provider's own site" }
-      - { name: sponsored, label: Sponsored post, widget: boolean, default: false, required: false, hint: "Turn on for paid posts. A 'Sponsored' label is shown." }
-      - { name: summary, label: Short summary, widget: text, hint: "One or two sentences. Shown on listing cards and in Google results." }
-      - { name: body, label: Full details, widget: markdown, hint: "Suggested sections: What it covers, Who can apply, Documents you'll need, How to apply, Tips" }
+      - { name: window, label: Usual application window (optional), widget: string, required: false, hint: "e.g. Usually opens in August and closes in October" }
+      - { name: sponsored, label: Sponsored post, widget: boolean, default: false, required: false, hint: "Only for paid posts. Shows a 'Sponsored' label." }
+      - { name: date, label: Date posted (filled in automatically), widget: datetime, default: "{{now}}", time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD" }
 
   - name: guides
     label: Guides
