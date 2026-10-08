@@ -28,7 +28,7 @@ collections:
       - { name: official_url, label: Official website link, widget: string, hint: "Paste the provider's own link (starts with https://)" }
       - { name: deadline, label: Deadline, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", required: false, hint: "Pick the closing date. If it varies, leave it empty and write it in Usual application window below." }
       - { name: summary, label: Short summary, widget: text, hint: "One or two sentences. Shown on listing cards and in Google." }
-      - { name: body, label: Full details, widget: markdown, required: false, hint: "Optional. Paste your post text here: what it covers, who can apply, how to apply." }
+      - { name: body, label: Full details, widget: markdown, modes: [raw, rich_text], required: false, hint: "Optional. Paste your post text here: what it covers, who can apply, how to apply." }
       # Optional extras: safe to skip
       - name: levels
         label: Study levels (optional)
@@ -45,7 +45,7 @@ collections:
         widget: select
         default: Fully funded
         required: false
-        options: [Fully funded, Partially funded, Tuition only]
+        options: [Fully funded, Partially funded, Tuition only, Paid internship or job, Unpaid internship]
       - { name: window, label: Usual application window (optional), widget: string, required: false, hint: "e.g. Usually opens in August and closes in October" }
       - { name: sponsored, label: Sponsored post, widget: boolean, default: false, required: false, hint: "Only for paid posts. Shows a 'Sponsored' label." }
       - { name: date, label: Date posted (filled in automatically), widget: datetime, default: "{{now}}", time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD" }
@@ -62,7 +62,7 @@ collections:
       - { name: title, label: Title, widget: string }
       - { name: date, label: Date, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD" }
       - { name: summary, label: Short summary, widget: text }
-      - { name: body, label: Article, widget: markdown }
+      - { name: body, label: Article, widget: markdown, modes: [raw, rich_text] }
 
   - name: settings
     label: Site settings

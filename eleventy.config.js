@@ -17,6 +17,16 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addGlobalData("buildDate", () => new Date());
 
+  // Posts pasted into the editor's rich-text mode get their formatting symbols
+  // saved as plain text (\*\*bold\*\*, \## heading). Undo that before building.
+  eleventyConfig.addPreprocessor("unescape-pasted-markdown", "md", (data, content) => {
+    let out = content.replace(/\\([*#>|_\-\[\]`!+.~])/g, "$1");
+    // Rich-text mode also puts blank lines between table rows, which breaks tables
+    let prev;
+    do { prev = out; out = out.replace(/^(\|.*\|[ \t]*)\n[ \t]*\n(?=\|)/gm, "$1\n"); } while (out !== prev);
+    return out;
+  });
+
   const levelNames = { undergraduate: "Undergraduate", masters: "Master's", phd: "PhD", other: "Other" };
 
   eleventyConfig.addCollection("scholarships", (api) =>
