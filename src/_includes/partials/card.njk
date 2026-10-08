@@ -7,7 +7,7 @@
   </div>
   <h3><a href="{{ item.url }}">{{ s.title }}</a></h3>
   <p>{{ s.summary }}</p>
-  <div class="levels">{% for l in (s.levels or []) %}<span>{{ l | levelName }}</span>{% endfor %}</div>
+  <div class="levels">{% for l in (s.levels or []) %}<a href="/scholarships/?level={{ l }}" title="See all {{ l | levelName }} opportunities">{{ l | levelName }}</a>{% endfor %}</div>
   <dl>
     {% if s.deadline %}<dt>Deadline</dt><dd>{{ s.deadline | readableDate }}{% if st %} <span class="status {{ st.cls }}">{{ st.label }}</span>{% endif %}</dd>
     {% elif s.window %}<dt>Window</dt><dd>{{ s.window }}</dd>{% endif %}

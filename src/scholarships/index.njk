@@ -19,6 +19,7 @@ permalink: /scholarships/
       <button class="chip" type="button" data-f="undergraduate" aria-pressed="false">Undergraduate</button>
       <button class="chip" type="button" data-f="masters" aria-pressed="false">Master's</button>
       <button class="chip" type="button" data-f="phd" aria-pressed="false">PhD</button>
+      <button class="chip" type="button" data-f="other" aria-pressed="false">Jobs &amp; internships</button>
     </div>
   </div>
 
@@ -49,5 +50,9 @@ permalink: /scholarships/
         apply();
       });
     });
+    // Open with a level already selected, e.g. /scholarships/?level=masters
+    var start = new URLSearchParams(location.search).get("level");
+    var startBtn = start && document.querySelector('.chip[data-f="' + start.replace(/[^a-z]/g, "") + '"]');
+    if (startBtn) startBtn.click();
   })();
 </script>
