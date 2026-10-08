@@ -7,7 +7,7 @@ summary: 12-month paid work placements across Africa for young people aged 18 to
 levels:
   - other
 funding: Fully funded
-window: ''
+window: 'Rolling: roles are posted in rounds through regional partners such as Jobberman'
 sponsored: false
 date: 2026-10-08
 ---
