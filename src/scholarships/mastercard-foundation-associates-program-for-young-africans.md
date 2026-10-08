@@ -78,4 +78,4 @@ The programme is coordinated by \*\*LEAP Africa\*\*, whose website lists the cur
 
 \- \*\*Beware of fake recruiters.\*\* The programme never asks for payment. Apply only through the official partners listed on the Mastercard Foundation and LEAP Africa websites.
 
-Need help with your CV? [Book a CV review](/services/).
+Need help with your CV? [Book a CV review](/services/)
