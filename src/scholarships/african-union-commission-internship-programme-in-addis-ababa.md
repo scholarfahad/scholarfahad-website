@@ -6,7 +6,7 @@ deadline: 2026-12-31
 summary: A 3-month internship at the African Union Commission in Addis Ababa for young Africans aged 32 or under, open to final-year students and recent graduates. The internship is unpaid.
 levels:
   - other
-funding: Fully funded
+funding: Unpaid internship
 window: ''
 sponsored: false
 date: 2026-10-08
