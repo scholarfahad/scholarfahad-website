@@ -1,6 +1,6 @@
 ---
 title: EMMIR Erasmus Mundus Master in Migration and Intercultural Relations 2027
-country: Europe (multi-country), Germany and Norway
+country: Europe (multi-country)
 official_url: https://www.emmir.org/applications
 deadline: 2026-12-20
 summary: A two-year Erasmus Mundus master's in migration and intercultural relations, with a €1,400 monthly stipend and study across Europe, Africa and Asia.
