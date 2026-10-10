@@ -6,7 +6,7 @@ deadline: 2026-10-20
 summary: Nigerian secondary school students, tertiary students and NYSC members can win up to ₦1.5 million, a laptop and a trophy by writing an essay on retirement in Nigeria.
 levels:
   - undergraduate
-funding: ''
+funding: Competition with prizes
 window: ''
 sponsored: false
 date: 2026-10-08
