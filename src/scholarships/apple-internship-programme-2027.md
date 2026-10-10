@@ -5,10 +5,10 @@ official_url: https://www.apple.com/careers/us/students.html
 deadline: ''
 summary: Paid summer and co-op internships at Apple for full-time bachelor's, master's and PhD students in technical and non-technical fields, at Apple offices in the US, Europe and Asia.
 levels:
-  - other
   - masters
   - phd
   - undergraduate
+  - other
 funding: Paid internship or job
 window: 'Rolling: roles are posted all year on jobs.apple.com'
 sponsored: false
