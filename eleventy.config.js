@@ -96,6 +96,10 @@ export default function (eleventyConfig) {
     const d = new Date(i.data.deadline);
     return i.data.deadline && !isNaN(d) && d < new Date(Date.now() - 86400000);
   }));
+  // Pieces of a date for calendar-style badges
+  eleventyConfig.addFilter("dayNum", (d) => new Date(d).getUTCDate());
+  eleventyConfig.addFilter("monShort", (d) => new Date(d).toLocaleDateString("en-GB", { month: "short", timeZone: "UTC" }));
+  eleventyConfig.addFilter("daysLeft", (d) => Math.max(0, Math.ceil((new Date(d) - new Date()) / 86400000)));
   eleventyConfig.addFilter("topCountries", (countries, n) =>
     [...(countries || [])].filter((c) => !/worldwide|online/i.test(c.name)).sort((a, b) => b.items.length - a.items.length).slice(0, n)
   );

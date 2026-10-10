@@ -71,19 +71,26 @@ layout: layouts/base.njk
   </div>
 </section>
 
-{% set soon = collections.scholarships | closingSoon(30) | limit(6) %}
+{% set soon = collections.scholarships | closingSoon(60) | limit(6) %}
 {% if soon.length %}
 <section class="block">
   <div class="wrap">
     <div class="sec-head">
-      <div><div class="label">Closing soon</div><h2>Deadlines in the next 30 days</h2></div>
+      <div><div class="label">Closing soon</div><h2>Deadlines in the next 60 days</h2></div>
       <p>Start these today. Most applications need reference letters, which take time.</p>
     </div>
-    <ol class="soon">
-      {% for item in soon %}{% set st = item.data.deadline | deadlineStatus %}
-      <li><a href="{{ item.url }}"><span class="when"><b>{{ item.data.deadline | readableDate }}</b>{% if st %}<span class="status {{ st.cls }}">{{ st.label }}</span>{% endif %}</span><span class="what">{{ item.data.title }}</span><span class="where">{{ item.data.country }}</span></a></li>
+    <div class="deadlines">
+      {% for item in soon %}{% set left = item.data.deadline | daysLeft %}{% set ti = (item.data | oppType) | typeInfo %}
+      <a class="dl-card{% if left <= 14 %} urgent{% endif %}" href="{{ item.url }}">
+        <span class="cal" aria-hidden="true"><b>{{ item.data.deadline | dayNum }}</b><small>{{ item.data.deadline | monShort }}</small></span>
+        <span class="dl-body">
+          <span class="dl-meta">{{ ti.singular }}{% if item.data.country %} · {{ item.data.country }}{% endif %}</span>
+          <span class="dl-title">{{ item.data.title }}</span>
+          <span class="dl-left">{% if left == 0 %}Closes today{% elif left == 1 %}1 day left{% else %}{{ left }} days left{% endif %}<span class="hidden"> · deadline {{ item.data.deadline | readableDate }}</span></span>
+        </span>
+      </a>
       {% endfor %}
-    </ol>
+    </div>
   </div>
 </section>
 {% endif %}
@@ -110,17 +117,9 @@ layout: layouts/base.njk
   <div class="wrap">
     <div class="sec-head">
       <div><div class="label">Browse</div><h2>Find opportunities for you</h2></div>
-      <p>By study level, by who can apply, or by where you'd like to go.</p>
+      <p>By study level, type, who can apply, or where you'd like to go.</p>
     </div>
-    <div class="tiles">
-      {% for p in collections.browsePages | browse("level") %}{% if p.items.length %}<a class="tile" href="{{ p.url }}"><b>{{ p.title }}</b><span>{{ p.items.length }} listed</span></a>{% endif %}{% endfor %}
-      {% for p in collections.browsePages | browse("audience") %}{% if p.items.length and p.key != "international" %}<a class="tile" href="{{ p.url }}"><b>{{ p.title }}</b><span>{{ p.items.length }} listed</span></a>{% endif %}{% endfor %}
-    </div>
-    <h3 class="label" style="margin:32px 0 12px">Study destinations</h3>
-    <div class="tiles dest">
-      {% for c in collections.countries | topCountries(8) %}<a class="tile" href="/scholarships/countries/{{ c.slug }}/"><b>Study in {{ c.name }}</b><span>{{ c.items.length }} listed</span></a>{% endfor %}
-      <a class="tile all" href="/scholarships/countries/"><b>All {{ collections.countries.length }} countries</b><span>See the full list</span></a>
-    </div>
+    {% set showEmpty = false %}{% include "partials/browse-panels.njk" %}
   </div>
 </section>
 

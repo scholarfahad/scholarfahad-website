@@ -1,0 +1,22 @@
+{# Four tidy lists: level, type, who can apply, destinations. Set showEmpty = true to list "coming soon" ones too. #}
+<div class="panels{% if showEmpty %} full{% endif %}">
+  {% for kind in ["level", "type", "audience"] %}
+  <div class="panel">
+    <h3>{% if kind == "level" %}By study level{% elif kind == "type" %}By type{% else %}Who can apply{% endif %}</h3>
+    <ul>
+      {% for p in collections.browsePages | browse(kind) %}{% if p.items.length or showEmpty %}
+      <li><a href="{{ p.url }}"{% if not p.items.length %} class="soon-tag"{% endif %}><span>{% if kind == "audience" %}{% if p.key == "international" %}Any nationality{% elif p.key == "developing" %}Developing countries{% elif p.key == "women" %}For women{% else %}For {{ p.label }}{% endif %}{% else %}{{ p.label }}{% endif %}</span><b>{{ p.items.length if p.items.length else "Soon" }}</b></a></li>
+      {% endif %}{% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+  <div class="panel dest-panel">
+    <h3>Study destinations</h3>
+    <ul>
+      {% for c in collections.countries | topCountries(showEmpty and 40 or 6) %}
+      <li><a href="/scholarships/countries/{{ c.slug }}/"><span>{{ c.name }}</span><b>{{ c.items.length }}</b></a></li>
+      {% endfor %}
+    </ul>
+    {% if not showEmpty %}<a class="panel-more" href="/scholarships/countries/">All {{ collections.countries.length }} countries →</a>{% endif %}
+  </div>
+</div>
