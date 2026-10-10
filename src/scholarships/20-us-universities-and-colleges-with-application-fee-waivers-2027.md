@@ -8,7 +8,7 @@ levels:
   - undergraduate
   - masters
   - phd
-funding: ''
+funding: Application fee waiver
 window: ''
 sponsored: false
 date: 2026-10-09
