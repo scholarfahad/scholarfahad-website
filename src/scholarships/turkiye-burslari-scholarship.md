@@ -6,6 +6,10 @@ levels: [undergraduate, masters, phd]
 window: Usually January to February
 official_url: https://www.turkiyeburslari.gov.tr/
 summary: The Turkish government's fully funded scholarship for undergraduate, master's and PhD study, including a year of Turkish language training.
+type: Scholarship
+open_to:
+  - international
+funding: Fully funded
 ---
 
 Türkiye Bursları is the Turkish government's scholarship programme for international students. It is one of the most popular fully funded scholarships, with applications from almost every country.

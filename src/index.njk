@@ -4,16 +4,20 @@ layout: layouts/base.njk
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="label">Free scholarships · Jobs · Application guides</div>
+      <div class="label">Free scholarships · Internships · Competitions · Guides</div>
       <h1>Find the funding. Write the application. <em>Submit before the deadline.</em></h1>
-      <p class="lede">Scholar Fahad lists fully funded scholarships around the world, free for everyone, with clear guides on what to submit and how to write it.</p>
-      <div class="ctas">
-        <a class="btn btn-primary" href="/scholarships/">Browse scholarships</a>
-        <a class="btn btn-ghost" href="/guides/">Read the free guides</a>
+      <p class="lede">Scholar Fahad lists scholarships, internships, fellowships and competitions from around the world, free for everyone, checked against the official websites.</p>
+      <form class="hero-search" role="search" action="/search/" method="get">
+        <label class="hidden" for="hq">Search opportunities</label>
+        <input id="hq" name="q" type="search" placeholder="Search: country, course, university…" autocomplete="off">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+      <div class="quick">
+        {% for p in collections.browsePages %}{% if p.items.length and p.key != "Scholarship" and p.key != "international" and p.key != "developing" %}<a class="chip" href="{{ p.url }}">{{ p.label if p.kind != "audience" else ("For " + p.label) }}</a>{% endif %}{% endfor %}
       </div>
       <div class="proof">
         <div><b>{{ site.followers }}</b><span>followers getting new calls</span></div>
-        <div><b>{{ collections.scholarships.length }}</b><span>scholarships listed</span></div>
+        <div><b>{{ collections.scholarships.length }}</b><span>opportunities listed</span></div>
         <div><b>{{ collections.countries.length }}</b><span>host countries</span></div>
       </div>
     </div>
@@ -39,23 +43,101 @@ layout: layouts/base.njk
   </div>
 </section>
 
+{% set featured = collections.featured | stillOpen | limit(6) %}
+{% if featured.length %}
 <section class="block">
   <div class="wrap">
     <div class="sec-head">
-      <div>
-        <div class="label">Latest</div>
-        <h2>New fully funded scholarships</h2>
-      </div>
+      <div><div class="label">Recommended</div><h2>Top picks right now</h2></div>
+      <p>Hand-picked opportunities that are open now and worth applying for.</p>
+    </div>
+    <div class="grid">
+      {% for item in featured %}{% include "partials/card.njk" %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="label">Latest</div><h2>New opportunities</h2></div>
       <p>Each listing explains who can apply, what it covers, which documents you need and where to apply officially.</p>
     </div>
     <div class="grid">
-      {% for item in collections.scholarships | limit(6) %}{% include "partials/card.njk" %}{% endfor %}
+      {% for item in collections.scholarships | limit(9) %}{% include "partials/card.njk" %}{% endfor %}
     </div>
-    <div class="more"><a class="btn btn-ghost" href="/scholarships/">See all scholarships</a></div>
+    <div class="more"><a class="btn btn-ghost" href="/scholarships/">See all {{ collections.scholarships.length }} opportunities</a></div>
   </div>
 </section>
 
+{% set soon = collections.scholarships | closingSoon(30) | limit(6) %}
+{% if soon.length %}
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="label">Closing soon</div><h2>Deadlines in the next 30 days</h2></div>
+      <p>Start these today. Most applications need reference letters, which take time.</p>
+    </div>
+    <ol class="soon">
+      {% for item in soon %}{% set st = item.data.deadline | deadlineStatus %}
+      <li><a href="{{ item.url }}"><span class="when"><b>{{ item.data.deadline | readableDate }}</b>{% if st %}<span class="status {{ st.cls }}">{{ st.label }}</span>{% endif %}</span><span class="what">{{ item.data.title }}</span><span class="where">{{ item.data.country }}</span></a></li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+{% endif %}
+
 {% include "partials/ad.njk" %}
+
+{% set others = collections.scholarships | withoutTypes(["Scholarship"]) | stillOpen | limit(6) %}
+{% if others.length %}
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="label">Beyond scholarships</div><h2>Internships, jobs, competitions and grants</h2></div>
+      <p>Paid internships, essay competitions, fellowships and grants for students and young professionals.</p>
+    </div>
+    <div class="grid">
+      {% for item in others %}{% include "partials/card.njk" %}{% endfor %}
+    </div>
+    <div class="more"><a class="btn btn-ghost" href="/opportunities/">Browse by type</a></div>
+  </div>
+</section>
+{% endif %}
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="label">Browse</div><h2>Find opportunities for you</h2></div>
+      <p>By study level, by who can apply, or by where you'd like to go.</p>
+    </div>
+    <div class="tiles">
+      {% for p in collections.browsePages | browse("level") %}{% if p.items.length %}<a class="tile" href="{{ p.url }}"><b>{{ p.title }}</b><span>{{ p.items.length }} listed</span></a>{% endif %}{% endfor %}
+      {% for p in collections.browsePages | browse("audience") %}{% if p.items.length and p.key != "international" %}<a class="tile" href="{{ p.url }}"><b>{{ p.title }}</b><span>{{ p.items.length }} listed</span></a>{% endif %}{% endfor %}
+    </div>
+    <h3 class="label" style="margin:32px 0 12px">Study destinations</h3>
+    <div class="tiles dest">
+      {% for c in collections.countries | topCountries(8) %}<a class="tile" href="/scholarships/countries/{{ c.slug }}/"><b>Study in {{ c.name }}</b><span>{{ c.items.length }} listed</span></a>{% endfor %}
+      <a class="tile all" href="/scholarships/countries/"><b>All {{ collections.countries.length }} countries</b><span>See the full list</span></a>
+    </div>
+  </div>
+</section>
+
+{% if collections.stories.length %}
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="label">Success stories</div><h2>They applied. They won.</h2></div>
+      <p>Followers who won scholarships and opportunities they found here.</p>
+    </div>
+    <div class="stories">
+      {% for st in collections.stories | limit(3) %}{% include "partials/story-card.njk" %}{% endfor %}
+    </div>
+    <div class="more"><a class="btn btn-ghost" href="/success-stories/">Read all stories</a></div>
+  </div>
+</section>
+{% endif %}
 
 <section class="block">
   <div class="wrap">

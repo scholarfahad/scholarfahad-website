@@ -12,6 +12,9 @@ funding: Application fee waiver
 window: ''
 sponsored: false
 date: 2026-10-09
+type: Scholarship
+open_to:
+  - international
 ---
 
 Applying to US universities can be expensive, as application fees often cost **$50 to $150 per school**. The good news is that many universities offer **application fee waivers**. Here are **20 US universities, law schools and colleges** where you may be able to apply for free.

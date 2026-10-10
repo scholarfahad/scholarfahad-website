@@ -1,0 +1,63 @@
+---
+layout: layouts/base.njk
+title: Search
+description: Search every scholarship, internship, competition and guide on Scholar Fahad.
+permalink: /search/
+---
+<div class="wrap">
+  <header class="page-head">
+    <div class="label">Search</div>
+    <h1>Search Scholar Fahad</h1>
+    <p>Try a country, a course, a university or a word like "PhD", "internship" or "Nigeria".</p>
+  </header>
+  <form class="tools" role="search" action="/search/" onsubmit="return false">
+    <label class="hidden" for="sq">Search</label>
+    <input class="search" id="sq" name="q" type="search" placeholder="e.g. Germany master's, Mastercard, internship" autocomplete="off">
+  </form>
+  <p class="count" id="scount" aria-live="polite"></p>
+  <div class="results" id="sres"></div>
+  <p class="empty" id="sempty" hidden>Nothing matches that yet. Try fewer words, or <a href="/opportunities/">browse by category</a>.</p>
+</div>
+{% include "partials/ad.njk" %}
+<script>
+(function () {
+  var input = document.getElementById("sq"), out = document.getElementById("sres"),
+      count = document.getElementById("scount"), empty = document.getElementById("sempty"), data = null;
+  var levelNames = { undergraduate: "Undergraduate", masters: "Master's", phd: "PhD", highschool: "High school" };
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function norm(s) { return String(s || "").toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/[’']/g, ""); }
+  function run() {
+    var q = norm(input.value.trim());
+    var url = new URL(location.href);
+    if (q) url.searchParams.set("q", input.value.trim()); else url.searchParams.delete("q");
+    history.replaceState(null, "", url);
+    if (!data) return;
+    if (!q) { out.innerHTML = ""; count.textContent = ""; empty.hidden = true; return; }
+    var words = q.split(/\s+/).map(function (w) { return w.replace(/s$/, ""); });
+    var today = new Date().toISOString().slice(0, 10);
+    var hits = data.map(function (r) {
+      var title = norm(r.t), all = norm([r.t, r.c, r.k, r.f, r.l, r.s, (r.l || "").split(" ").map(function (l) { return levelNames[l] || ""; }).join(" ")].join(" "));
+      var score = 0;
+      for (var i = 0; i < words.length; i++) {
+        if (all.indexOf(words[i]) < 0) return null;
+        score += title.indexOf(words[i]) > -1 ? 3 : 1;
+      }
+      if (r.d && r.d < today) score -= 2;
+      return { r: r, score: score };
+    }).filter(Boolean).sort(function (a, b) { return b.score - a.score; });
+    count.textContent = hits.length + " result" + (hits.length === 1 ? "" : "s");
+    empty.hidden = hits.length > 0;
+    out.innerHTML = hits.slice(0, 60).map(function (h) {
+      var r = h.r, closed = r.d && r.d < today;
+      var meta = [r.k, r.c, r.f].filter(Boolean).join(" · ");
+      var dl = r.d ? '<span class="status ' + (closed ? "closed" : "open") + '">' + (closed ? "Closed" : "Deadline " + new Date(r.d + "T00:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" })) + "</span>" : "";
+      return '<a class="result" href="' + esc(r.u) + '"><span class="label">' + esc(meta) + '</span><b>' + esc(r.t) + '</b><span>' + esc(r.s) + '</span>' + dl + '</a>';
+    }).join("");
+  }
+  input.addEventListener("input", run);
+  var start = new URLSearchParams(location.search).get("q");
+  if (start) input.value = start;
+  fetch("/search-index.json").then(function (r) { return r.json(); }).then(function (d) { data = d.filter(Boolean); run(); });
+  input.focus();
+})();
+</script>

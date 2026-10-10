@@ -10,6 +10,9 @@ funding: Fully funded
 window: ''
 sponsored: false
 date: 2026-10-09
+type: Scholarship
+open_to:
+  - africa
 ---
 
 **Wageningen University & Research (WUR)** in the Netherlands is one of the world's leading universities for agriculture, food, environment and life sciences. Through its **Africa Scholarship Programme (ASP)**, WUR offers **fully funded scholarships** to talented African students for a **two-year MSc** starting in **September 2027**.

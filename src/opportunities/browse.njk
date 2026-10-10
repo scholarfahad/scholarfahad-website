@@ -1,0 +1,48 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.browsePages
+  size: 1
+  alias: bp
+permalink: "{{ bp.url }}"
+eleventyComputed:
+  title: "{{ bp.title }}"
+  description: "{{ bp.intro }}"
+  noindex: "{{ 'yes' if bp.items.length == 0 else '' }}"
+---
+{% set open = bp.items | stillOpen %}
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/opportunities/">Browse</a> / {{ bp.label }}</nav>
+  <header class="page-head" style="padding-top:14px">
+    <div class="label">{% if bp.kind == "type" %}Opportunity type{% elif bp.kind == "level" %}Study level{% else %}Open to {{ bp.label }}{% endif %}</div>
+    <h1>{{ bp.title }}</h1>
+    <p>{{ bp.intro }}</p>
+    {% if bp.items.length %}<p class="count">{{ open.length }} open now{% if bp.items.length > open.length %} · {{ bp.items.length - open.length }} closed{% endif %}</p>{% endif %}
+  </header>
+
+  {% if bp.items.length %}
+  <div class="grid">
+    {% for item in open %}{% include "partials/card.njk" %}{% endfor %}
+  </div>
+  {% if bp.items.length > open.length %}
+  <details class="closed-list">
+    <summary>Show closed opportunities (they often reopen next year)</summary>
+    <div class="grid">
+      {% for item in bp.items | closedOnly %}{% include "partials/card.njk" %}{% endfor %}
+    </div>
+  </details>
+  {% endif %}
+  {% else %}
+  <p class="empty">No {{ bp.label | lower }} listed yet. New ones are added every week. <a href="/scholarships/">See all opportunities</a> or join the <a href="{{ site.whatsapp_channel }}" target="_blank" rel="noopener">WhatsApp channel</a> to hear first.</p>
+  {% endif %}
+
+  {% if bp.kind == "audience" and bp.key != "international" %}
+  <p class="note">You can also apply for opportunities open to every nationality. <a href="/scholarships/for-international-students/">See scholarships for international students</a>.</p>
+  {% endif %}
+
+  <div class="browse-more">
+    <h2 class="label">Browse more</h2>
+    {% include "partials/browse-chips.njk" %}
+  </div>
+</div>
+{% include "partials/ad.njk" %}

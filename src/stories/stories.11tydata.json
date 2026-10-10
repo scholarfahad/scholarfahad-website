@@ -1,0 +1,4 @@
+{
+  "layout": "layouts/story.njk",
+  "permalink": "/success-stories/{{ page.fileSlug }}/"
+}

@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+---
+<div class="wrap narrow">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/success-stories/">Success stories</a></nav>
+  <header class="article-head">
+    <div class="label">Success story</div>
+    <h1>{{ title }}</h1>
+  </header>
+  <aside class="story-head">
+    {% if photo %}<img src="{{ photo }}" alt="{{ name }}" width="96" height="96">{% else %}<span class="avatar big" aria-hidden="true">{{ name | first }}</span>{% endif %}
+    <dl class="facts">
+      <dt>Name</dt><dd>{{ name }}</dd>
+      {% if home_country %}<dt>From</dt><dd>{{ home_country }}</dd>{% endif %}
+      <dt>Won</dt><dd>{{ scholarship }}</dd>
+      {% if university %}<dt>Where</dt><dd>{{ university }}</dd>{% endif %}
+    </dl>
+  </aside>
+  {% if quote %}<blockquote class="pull">“{{ quote }}”</blockquote>{% endif %}
+  <div class="prose">{{ content | safe }}</div>
+  <div class="apply-box">
+    <h2>Your turn</h2>
+    <p>Find an opportunity that fits you, then use the free guides to write a strong application.</p>
+    <div class="ctas" style="margin-top:4px">
+      <a class="btn btn-primary" href="/opportunities/">Browse opportunities</a>
+      <a class="btn btn-ghost" href="/guides/">Read the guides</a>
+    </div>
+  </div>
+</div>
+<div style="margin-top:64px">{% include "partials/updates.njk" %}</div>

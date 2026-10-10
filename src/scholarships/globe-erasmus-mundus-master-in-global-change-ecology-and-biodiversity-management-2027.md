@@ -10,6 +10,9 @@ funding: Fully funded
 window: ''
 sponsored: false
 date: 2026-10-09
+type: Scholarship
+open_to:
+  - international
 ---
 
 **GLOBE**, the **Erasmus Mundus Joint Master in Global Change Ecology and Biodiversity Management**, trains the next generation of scientists and managers working on climate change, biodiversity loss and ecosystem protection. Students study in **Spain, Wales, Portugal and Mexico**, and the best applicants receive a **full EU scholarship**.

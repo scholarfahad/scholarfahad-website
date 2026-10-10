@@ -6,6 +6,10 @@ levels: [masters]
 window: Usually September to October, through your national nominating agency
 official_url: https://cscuk.fcdo.gov.uk/
 summary: Fully funded UK master's study for citizens of eligible Commonwealth countries, focused on development impact.
+type: Scholarship
+open_to:
+  - developing
+funding: Fully funded
 ---
 
 The Commonwealth Scholarship Commission in the UK offers master's scholarships to talented people from low and middle income Commonwealth countries. The scheme is designed for candidates whose studies will help development in their home country.

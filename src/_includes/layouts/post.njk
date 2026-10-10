@@ -3,15 +3,16 @@ layout: layouts/base.njk
 ---
 {% set isScholarship = page.url.startsWith('/scholarships/') %}
 {% set st = deadline | deadlineStatus %}
+{% set ti = type | default("Scholarship") | typeInfo %}
 <div class="wrap narrow">
   <nav class="crumbs" aria-label="Breadcrumb">
     <a href="/">Home</a> /
-    {% if isScholarship %}<a href="/scholarships/">Scholarships</a>{% if country %} / <a href="/scholarships/countries/{{ country | slug2 }}/">{{ country }}</a>{% endif %}
+    {% if isScholarship %}{% if ti.value != "Scholarship" %}<a href="/opportunities/{{ ti.slug }}/">{{ ti.title }}</a>{% else %}<a href="/scholarships/">Scholarships</a>{% endif %}{% if country %} / <a href="/scholarships/countries/{{ country | slug2 }}/">{{ country }}</a>{% endif %}
     {% else %}<a href="/guides/">Guides</a>{% endif %}
   </nav>
 
   <header class="article-head">
-    {% if isScholarship %}<div class="label">{{ country }}{% if country and funding %} · {% endif %}{{ funding }}</div>{% else %}<div class="label">Application guide</div>{% endif %}
+    {% if isScholarship %}<div class="label">{% if ti.value != "Scholarship" %}{{ ti.singular }} · {% endif %}{{ country }}{% if country and funding %} · {% endif %}{{ funding }}</div>{% else %}<div class="label">Application guide</div>{% endif %}
     <h1>{{ title }}</h1>
     <div class="meta">
       <span>Updated {{ page.date | readableDate }}</span>
@@ -26,6 +27,8 @@ layout: layouts/base.njk
     <dl class="facts">
       {% if country %}<dt>Host country</dt><dd>{{ country }}</dd>{% endif %}
       {% if levels and levels.length %}<dt>Study level</dt><dd>{% for l in levels %}{{ l | levelName }}{% if not loop.last %}, {% endif %}{% endfor %}</dd>{% endif %}
+      {% if ti.value != "Scholarship" %}<dt>Type</dt><dd><a href="/opportunities/{{ ti.slug }}/">{{ ti.singular }}</a></dd>{% endif %}
+      {% if open_to and open_to.length %}<dt>Open to</dt><dd>{% for a in open_to %}{{ a | audienceLabel }}{% if not loop.last %}, {% endif %}{% endfor %}</dd>{% endif %}
       {% if funding %}<dt>Funding</dt><dd>{{ funding }}</dd>{% endif %}
       {% if deadline %}<dt>Deadline</dt><dd>{{ deadline | readableDate }}</dd>{% endif %}
       {% if window %}<dt>Usual window</dt><dd>{{ window }}</dd>{% endif %}
@@ -61,9 +64,10 @@ layout: layouts/base.njk
 </div>
 
 {% if isScholarship %}
-{% set related = collections.scholarships | excludeUrl(page.url) | limit(3) %}
+{% set sameType = collections.scholarships | excludeUrl(page.url) | withTypes([ti.value]) | stillOpen %}
+{% set related = (sameType if sameType.length >= 3 else (collections.scholarships | excludeUrl(page.url) | stillOpen)) | limit(3) %}
 <section class="wrap related">
-  <div class="sec-head"><div><div class="label">Keep looking</div><h2>More fully funded scholarships</h2></div></div>
+  <div class="sec-head"><div><div class="label">Keep looking</div><h2>{% if ti.value != "Scholarship" %}More {{ ti.title | lower }}{% else %}More scholarships{% endif %}</h2></div></div>
   <div class="grid">
     {% for item in related %}{% include "partials/card.njk" %}{% endfor %}
   </div>

@@ -10,6 +10,9 @@ funding: Fully funded
 window: ''
 sponsored: false
 date: 2026-10-07
+type: Scholarship
+open_to:
+  - africa
 ---
 
 The **University of Global Health Equity (UGHE)** in Rwanda, together with the **Mastercard Foundation Scholars Program**, offers fully funded scholarships to young Africans for its **Master of Science in Global Health Delivery (MGHD)**. The programme trains health leaders who can deliver better care in their own communities.

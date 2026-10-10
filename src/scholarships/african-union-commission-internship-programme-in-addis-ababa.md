@@ -10,6 +10,9 @@ funding: Unpaid internship
 window: ''
 sponsored: false
 date: 2026-10-08
+type: Internship
+open_to:
+  - africa
 ---
 
 The **African Union Commission (AUC)** runs an internship programme that gives young Africans hands-on experience inside the institution working on the continent's development and integration. Interns join departments at the AU headquarters in **Addis Ababa, Ethiopia**.

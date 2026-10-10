@@ -6,6 +6,10 @@ levels: [masters]
 window: Applications usually open in August and close in early November
 official_url: https://www.chevening.org/
 summary: The UK government's flagship award for a one-year master's degree at any UK university, aimed at future leaders.
+type: Scholarship
+open_to:
+  - international
+funding: Fully funded
 ---
 
 Chevening is the UK government's international scholarship programme, funded by the Foreign, Commonwealth and Development Office and partner organisations. It pays for a one-year taught master's degree at a UK university for people with clear leadership potential.

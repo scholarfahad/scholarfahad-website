@@ -10,6 +10,9 @@ funding: Fully funded
 window: ''
 sponsored: false
 date: 2026-10-08
+type: Scholarship
+open_to:
+  - africa
 ---
 
 DAAD scholarships don't always mean studying in Germany. Through its **In-Country/In-Region Scholarship Programme**, the German Academic Exchange Service (DAAD) funds talented Sub-Saharan Africans to study for a **master's degree at selected universities in Africa**, either in their **home country** (in-country) or in **another Sub-Saharan African country** (in-region).

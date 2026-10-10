@@ -7,6 +7,7 @@
 {% set pageDesc = summary or description or site.description %}
 <title>{{ pageTitle }}</title>
 <meta name="description" content="{{ pageDesc }}">
+{% if noindex %}<meta name="robots" content="noindex">{% endif %}
 <link rel="canonical" href="{{ siteUrl }}{{ page.url }}">
 <meta property="og:type" content="{{ 'article' if layout == 'layouts/post.njk' else 'website' }}">
 <meta property="og:site_name" content="{{ site.name }}">
@@ -34,14 +35,16 @@
 <header class="top">
   <div class="wrap">
     <a class="brand" href="/"><span class="seal">SF</span>{{ site.name }}</a>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="links" id="nav" aria-label="Main">
-      {% set navItems = [["/scholarships/", "Scholarships"], ["/guides/", "Guides"], ["/services/", "Services"], ["/about/", "About"], ["/contact/", "Contact"]] %}
+      {% set navItems = [["/scholarships/", "Scholarships"], ["/opportunities/", "Browse"], ["/opportunities/internships/", "Internships"], ["/guides/", "Guides"], ["/success-stories/", "Success stories"], ["/services/", "Services"], ["/about/", "About"]] %}
       {% for item in navItems %}
-      <a href="{{ item[0] }}"{% if page.url.startsWith(item[0]) %} aria-current="page"{% endif %}>{{ item[1] }}</a>
+      <a href="{{ item[0] }}"{% if page.url == item[0] or (item[0] != "/opportunities/" and page.url.startsWith(item[0])) %} aria-current="page"{% endif %}>{{ item[1] }}</a>
       {% endfor %}
     </nav>
-    <a class="btn btn-primary cta-fb" href="{{ site.facebook }}" target="_blank" rel="noopener">Follow on Facebook</a>
+    <div class="top-right">
+      <a class="search-btn" href="/search/" aria-label="Search"{% if page.url == "/search/" %} aria-current="page"{% endif %}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    </div>
   </div>
 </header>
 
@@ -63,12 +66,27 @@
         </p>
       </div>
       <div>
-        <h4>Explore</h4>
+        <h4>Scholarships</h4>
         <ul>
-          <li><a href="/scholarships/">All scholarships</a></li>
+          <li><a href="/scholarships/">All opportunities</a></li>
+          {% for p in collections.browsePages | browse("level") %}{% if p.items.length %}<li><a href="{{ p.url }}">{{ p.title }}</a></li>{% endif %}{% endfor %}
           <li><a href="/scholarships/countries/">By country</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Opportunities</h4>
+        <ul>
+          {% for p in collections.browsePages | browse("type") %}{% if p.items.length and p.key != "Scholarship" %}<li><a href="{{ p.url }}">{{ p.label }}</a></li>{% endif %}{% endfor %}
+          {% for p in collections.browsePages | browse("audience") %}{% if p.items.length and p.key != "international" %}<li><a href="{{ p.url }}">{{ p.title }}</a></li>{% endif %}{% endfor %}
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
           <li><a href="/guides/">Application guides</a></li>
+          <li><a href="/success-stories/">Success stories</a></li>
           <li><a href="/services/">Document reviews</a></li>
+          <li><a href="/search/">Search</a></li>
         </ul>
       </div>
       <div>

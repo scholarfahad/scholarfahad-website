@@ -1,13 +1,17 @@
 {% set s = item.data %}
 {% set st = s.deadline | deadlineStatus %}
-<article class="card" data-levels="{{ (s.levels or []) | join(' ') }}" data-search="{{ (s.title + ' ' + (s.country or '') + ' ' + (s.summary or '')) | lower }}">
+{% set ti = (s | oppType) | typeInfo %}
+<article class="card" data-levels="{{ (s.levels or []) | join(' ') }}" data-type="{{ ti.slug }}" data-search="{{ (s.title + ' ' + (s.country or '') + ' ' + ti.title + ' ' + (s.summary or '')) | lower }}">
   <div class="row">
     {% if s.country %}<a class="country" href="/scholarships/countries/{{ s.country | slug2 }}/">{{ s.country }}</a>{% else %}<span class="country">Opportunity</span>{% endif %}
     <span>{% if s.sponsored %}<span class="fund sponsored">Sponsored</span> {% endif %}{% if s.funding %}<span class="fund">{{ s.funding }}</span>{% endif %}</span>
   </div>
   <h3><a href="{{ item.url }}">{{ s.title }}</a></h3>
   <p>{{ s.summary }}</p>
-  <div class="levels">{% for l in (s.levels or []) %}<a href="/scholarships/?level={{ l }}" title="See all {{ l | levelName }} opportunities">{{ l | levelName }}</a>{% endfor %}</div>
+  <div class="levels">
+    {% if ti.value != "Scholarship" %}<a class="type" href="/opportunities/{{ ti.slug }}/">{{ ti.singular }}</a>{% endif %}
+    {% for l in (s.levels or []) %}{% if l != "other" %}{% set lv = l | levelInfo %}{% if lv %}<a href="/scholarships/{{ lv.slug }}/" title="See all {{ l | levelName }} opportunities">{{ l | levelName }}</a>{% endif %}{% endif %}{% endfor %}
+  </div>
   <dl>
     {% if s.deadline %}<dt>Deadline</dt><dd>{{ s.deadline | readableDate }}{% if st %} <span class="status {{ st.cls }}">{{ st.label }}</span>{% endif %}</dd>
     {% elif s.window %}<dt>Window</dt><dd>{{ s.window }}</dd>{% endif %}

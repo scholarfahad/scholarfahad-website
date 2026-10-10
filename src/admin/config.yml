@@ -24,6 +24,12 @@ collections:
     fields:
       # The essentials: fill these in for every post
       - { name: title, label: Title, widget: string, hint: "e.g. Chevening Scholarships (UK)" }
+      - name: type
+        label: Opportunity type
+        widget: select
+        default: Scholarship
+        options: [Scholarship, Fellowship, Internship, Job, Competition, Grant, Training or course, Conference, Exchange programme]
+        hint: "Decides which section it appears in, e.g. Internships or Competitions."
       - { name: country, label: Host country, widget: string, hint: "e.g. United Kingdom, Germany, Europe (multi-country). Use the same spelling every time." }
       - { name: official_url, label: Official website link, widget: string, hint: "Paste the provider's own link (starts with https://)" }
       - { name: deadline, label: Deadline, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", required: false, hint: "Pick the closing date. If it varies, leave it empty and write it in Usual application window below." }
@@ -39,14 +45,28 @@ collections:
           - { label: Undergraduate, value: undergraduate }
           - { label: "Master's", value: masters }
           - { label: PhD, value: phd }
+          - { label: High school, value: highschool }
           - { label: "Other (volunteering, jobs, courses)", value: other }
+      - name: open_to
+        label: Open to (optional)
+        widget: select
+        multiple: true
+        required: false
+        hint: "Who can apply. Pick 'All nationalities' if anyone can. Nigerians pages also show Africa and developing-country posts."
+        options:
+          - { label: All nationalities, value: international }
+          - { label: Africans, value: africa }
+          - { label: Nigerians only, value: nigeria }
+          - { label: Developing countries, value: developing }
+          - { label: Women, value: women }
       - name: funding
         label: Funding (optional)
         widget: select
-        default: Fully funded
         required: false
+        hint: "Pick what the official page says. Leave empty if unsure."
         options: [Fully funded, Partially funded, Tuition only, Paid internship or job, Unpaid internship, Competition with prizes, Application fee waiver]
       - { name: window, label: Usual application window (optional), widget: string, required: false, hint: "e.g. Usually opens in August and closes in October" }
+      - { name: featured, label: Featured on homepage, widget: boolean, default: false, required: false, hint: "Tick to show it in 'Recommended' at the top of the homepage. Keep it to 3 to 6 posts." }
       - { name: sponsored, label: Sponsored post, widget: boolean, default: false, required: false, hint: "Only for paid posts. Shows a 'Sponsored' label." }
       - { name: date, label: Date posted (filled in automatically), widget: datetime, default: "{{now}}", time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD" }
 
@@ -63,6 +83,27 @@ collections:
       - { name: date, label: Date, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD" }
       - { name: summary, label: Short summary, widget: text }
       - { name: body, label: Article, widget: markdown, modes: [raw, rich_text] }
+
+  - name: stories
+    label: Success stories
+    label_singular: Success story
+    description: Followers who won a scholarship with help from Scholar Fahad. Only publish with their permission.
+    folder: src/stories
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{slug}}"
+    summary: "{{name}}: {{scholarship}}"
+    fields:
+      - { name: title, label: Headline, widget: string, hint: "e.g. How Aisha won a Chevening Scholarship" }
+      - { name: name, label: Their name, widget: string }
+      - { name: photo, label: Photo (optional), widget: image, required: false }
+      - { name: scholarship, label: Scholarship or opportunity won, widget: string }
+      - { name: university, label: University or organisation (optional), widget: string, required: false }
+      - { name: home_country, label: Home country (optional), widget: string, required: false }
+      - { name: quote, label: Short quote, widget: text, hint: "One or two sentences in their own words. Shown on the homepage." }
+      - { name: body, label: Full story, widget: markdown, modes: [raw, rich_text], required: false }
+      - { name: date, label: Date, widget: datetime, default: "{{now}}", time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD" }
 
   - name: settings
     label: Site settings

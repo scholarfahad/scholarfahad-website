@@ -13,6 +13,9 @@ funding: Paid internship or job
 window: 'Rolling: vacancies are posted all year, each with its own deadline'
 sponsored: false
 date: 2026-10-08
+type: Internship
+open_to:
+  - international
 ---
 
 The **World Health Organization (WHO)** offers internships for students and recent graduates who want hands-on experience in global public health. Interns work in WHO's technical and administrative teams at its **headquarters in Geneva**, at **regional offices** (including the African Regional Office) and at **country offices** around the world.

@@ -10,6 +10,9 @@ funding: Fully funded
 window: ''
 sponsored: false
 date: 2026-10-08
+type: Scholarship
+open_to:
+  - international
 ---
 
 The **University of Edinburgh** in Scotland is home to one of the UK's leading computer science schools, the **School of Informatics**. Its **PhD in Cyber Security, Privacy and Trust** trains researchers to tackle problems like secure systems, privacy protection and trustworthy technology. According to the university, **most PhD students in Informatics receive full scholarships** covering tuition fees and living costs.

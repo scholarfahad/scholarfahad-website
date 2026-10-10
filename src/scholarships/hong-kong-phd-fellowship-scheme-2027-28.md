@@ -10,6 +10,9 @@ funding: Fully funded
 window: ''
 sponsored: false
 date: 2026-10-08
+type: Fellowship
+open_to:
+  - international
 ---
 
 The **Hong Kong PhD Fellowship Scheme (HKPFS)** is one of the most generous PhD awards in the world. Run by Hong Kong's Research Grants Council (RGC), it offers **400 fellowships** for the **2027/28** academic year to outstanding students who want to do a PhD at one of eight Hong Kong universities. **Applicants from any country** can apply.

@@ -27,7 +27,7 @@ export default function (eleventyConfig) {
     return out;
   });
 
-  const levelNames = { undergraduate: "Undergraduate", masters: "Master's", phd: "PhD", other: "Other" };
+  const levelNames = { undergraduate: "Undergraduate", masters: "Master's", phd: "PhD", highschool: "High school", other: "Other" };
 
   eleventyConfig.addCollection("scholarships", (api) =>
     api.getFilteredByGlob("src/scholarships/*.md").sort((a, b) => b.date - a.date)
@@ -48,6 +48,57 @@ export default function (eleventyConfig) {
       .map(([name, items]) => ({ name, slug: slugify(name), items: items.sort((a, b) => b.date - a.date) }))
       .sort((a, b) => a.name.localeCompare(b.name));
   });
+
+  // Opportunity types, study levels and "Open to" groups, from src/_data/taxonomy.json
+  const tax = JSON.parse(fs.readFileSync("src/_data/taxonomy.json", "utf8"));
+  const typeOf = (data) => data.type || "Scholarship";
+  const posts = (api) => api.getFilteredByGlob("src/scholarships/*.md").sort((a, b) => b.date - a.date);
+
+  // One page per type, level and audience, e.g. /opportunities/internships/, /scholarships/masters/
+  eleventyConfig.addCollection("browsePages", (api) => {
+    const all = posts(api), pages = [];
+    for (const t of tax.types) pages.push({ kind: "type", key: t.value, label: t.title, title: t.title, intro: t.intro,
+      url: `/opportunities/${t.slug}/`, items: all.filter((i) => typeOf(i.data) === t.value) });
+    for (const l of tax.levels) pages.push({ kind: "level", key: l.value, label: l.label, title: l.title, intro: l.intro,
+      url: `/scholarships/${l.slug}/`, items: all.filter((i) => (i.data.levels || []).includes(l.value)) });
+    for (const a of tax.audiences) pages.push({ kind: "audience", key: a.value, label: a.label, title: a.title, intro: a.intro,
+      url: `/scholarships/${a.slug}/`, items: all.filter((i) => (i.data.open_to || []).some((v) => a.includes.includes(v))) });
+    return pages;
+  });
+  eleventyConfig.addCollection("featured", (api) => posts(api).filter((i) => i.data.featured));
+  eleventyConfig.addCollection("stories", (api) =>
+    api.getFilteredByGlob("src/stories/*.md").sort((a, b) => b.date - a.date)
+  );
+
+  eleventyConfig.addFilter("oppType", typeOf);
+  eleventyConfig.addFilter("typeInfo", (v) => tax.types.find((t) => t.value === v) || tax.types[0]);
+  eleventyConfig.addFilter("levelInfo", (v) => tax.levels.find((l) => l.value === v));
+  eleventyConfig.addFilter("audienceLabel", (v) => (tax.audiences.find((a) => a.value === v) || {}).label || v);
+  eleventyConfig.addFilter("browse", (pages, kind) => (pages || []).filter((p) => p.kind === kind));
+  eleventyConfig.addFilter("withTypes", (items, types) => (items || []).filter((i) => types.includes(typeOf(i.data))));
+  eleventyConfig.addFilter("withoutTypes", (items, types) => (items || []).filter((i) => !types.includes(typeOf(i.data))));
+  // Still open and closing within N days, soonest first
+  eleventyConfig.addFilter("closingSoon", (items, days) => {
+    const now = Date.now();
+    return (items || []).filter((i) => {
+      const d = new Date(i.data.deadline);
+      if (!i.data.deadline || isNaN(d)) return false;
+      const left = (d - now) / 86400000;
+      return left >= -1 && left <= days;
+    }).sort((a, b) => new Date(a.data.deadline) - new Date(b.data.deadline));
+  });
+  // Not yet closed (posts without a deadline count as open)
+  eleventyConfig.addFilter("stillOpen", (items) => (items || []).filter((i) => {
+    const d = new Date(i.data.deadline);
+    return !i.data.deadline || isNaN(d) || d >= new Date(Date.now() - 86400000);
+  }));
+  eleventyConfig.addFilter("closedOnly", (items) => (items || []).filter((i) => {
+    const d = new Date(i.data.deadline);
+    return i.data.deadline && !isNaN(d) && d < new Date(Date.now() - 86400000);
+  }));
+  eleventyConfig.addFilter("topCountries", (countries, n) =>
+    [...(countries || [])].filter((c) => !/worldwide|online/i.test(c.name)).sort((a, b) => b.items.length - a.items.length).slice(0, n)
+  );
 
   eleventyConfig.addFilter("levelName", (l) => levelNames[l] || l);
   eleventyConfig.addFilter("slug2", slugify);

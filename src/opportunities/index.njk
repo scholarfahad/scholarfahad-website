@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+title: Browse all opportunities
+description: Browse scholarships, internships, fellowships, competitions, grants and more by type, study level, country and who can apply.
+permalink: /opportunities/
+---
+<div class="wrap">
+  <header class="page-head">
+    <div class="label">Browse</div>
+    <h1>Find opportunities for you</h1>
+    <p>Choose a study level, a type of opportunity or a group to see what's open. Every listing links to the official website, where applying is free.</p>
+  </header>
+
+  {% for kind in ["level", "type", "audience"] %}
+  <section class="hub">
+    <h2>{% if kind == "level" %}By study level{% elif kind == "type" %}By type of opportunity{% else %}By who can apply{% endif %}</h2>
+    <div class="tiles">
+      {% for p in collections.browsePages | browse(kind) %}
+      <a class="tile" href="{{ p.url }}"><b>{{ p.title if kind != "type" else p.label }}</b><span>{% if p.items.length %}{{ p.items.length }} listed{% else %}Coming soon{% endif %}</span></a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+
+  <section class="hub">
+    <h2>By host country</h2>
+    <div class="tiles">
+      {% for c in collections.countries %}
+      <a class="tile" href="/scholarships/countries/{{ c.slug }}/"><b>{{ c.name }}</b><span>{{ c.items.length }} listed</span></a>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+{% include "partials/ad.njk" %}

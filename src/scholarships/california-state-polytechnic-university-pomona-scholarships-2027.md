@@ -11,6 +11,9 @@ funding: Partially funded
 window: ''
 sponsored: false
 date: 2026-10-10
+type: Scholarship
+open_to:
+  - international
 ---
 
 **California State Polytechnic University, Pomona (Cal Poly Pomona, or CPP)** is a public university near Los Angeles, known for engineering, agriculture, business, hospitality and science. CPP offers **more than 400 scholarships** to its students, and you can be considered for many of them with **one general application**.

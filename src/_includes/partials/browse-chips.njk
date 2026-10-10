@@ -1,0 +1,9 @@
+<div class="browse-chips">
+  {% for kind in ["level", "type", "audience"] %}
+  <div class="bc-row">
+    <span class="bc-label">{% if kind == "level" %}By level{% elif kind == "type" %}By type{% else %}Open to{% endif %}</span>
+    {% for p in collections.browsePages | browse(kind) %}{% if p.items.length %}<a class="chip{% if page.url == p.url %} on{% endif %}" href="{{ p.url }}">{{ p.label }} <small>{{ p.items.length }}</small></a>{% endif %}{% endfor %}
+  </div>
+  {% endfor %}
+  <div class="bc-row"><span class="bc-label">By country</span><a class="chip" href="/scholarships/countries/">All countries <small>{{ collections.countries.length }}</small></a></div>
+</div>

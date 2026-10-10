@@ -1,14 +1,14 @@
 ---
 layout: layouts/base.njk
-title: Fully funded scholarships
-description: Browse fully funded scholarships for undergraduate, master's and PhD study, with eligibility, required documents and official application links.
+title: Scholarships and opportunities
+description: Browse scholarships, internships, fellowships, competitions and grants for undergraduate, master's and PhD students, with eligibility, required documents and official application links.
 permalink: /scholarships/
 ---
 <div class="wrap">
   <header class="page-head">
     <div class="label">Scholarships</div>
-    <h1>Fully funded scholarships</h1>
-    <p>Search by name or country, or filter by study level. Every listing links to the official website, where applying is free.</p>
+    <h1>Scholarships and opportunities</h1>
+    <p>Search by name or country, or filter by study level and type. Every listing links to the official website, where applying is free.</p>
   </header>
 
   <div class="tools">
@@ -19,30 +19,37 @@ permalink: /scholarships/
       <button class="chip" type="button" data-f="undergraduate" aria-pressed="false">Undergraduate</button>
       <button class="chip" type="button" data-f="masters" aria-pressed="false">Master's</button>
       <button class="chip" type="button" data-f="phd" aria-pressed="false">PhD</button>
-      <button class="chip" type="button" data-f="other" aria-pressed="false">Jobs &amp; internships</button>
+      <button class="chip" type="button" data-f="highschool" aria-pressed="false">High school</button>
     </div>
+    <label class="hidden" for="ty">Type</label>
+    <select class="search type-select" id="ty">
+      <option value="all">All types</option>
+      {% for t in taxonomy.types %}<option value="{{ t.slug }}">{{ t.title }}</option>{% endfor %}
+    </select>
   </div>
 
   <div class="grid" id="list">
     {% for item in collections.scholarships %}{% include "partials/card.njk" %}{% endfor %}
   </div>
   <p class="empty" id="empty" hidden>No scholarships match that search. Try a country name or clear the filters.</p>
-  <p class="note">Browse <a href="/scholarships/countries/">scholarships by country</a>. Always confirm current dates and eligibility on the official website before applying.</p>
+  <div class="browse-more"><h2 class="label">Browse by category</h2>{% include "partials/browse-chips.njk" %}</div>
+  <p class="note">Always confirm current dates and eligibility on the official website before applying.</p>
 </div>
 {% include "partials/ad.njk" %}
 <script>
   (function () {
     var cards = [].slice.call(document.querySelectorAll("#list .card"));
-    var q = document.getElementById("q"), empty = document.getElementById("empty"), level = "all";
+    var q = document.getElementById("q"), ty = document.getElementById("ty"), empty = document.getElementById("empty"), level = "all";
     function apply() {
       var term = q.value.trim().toLowerCase(), shown = 0;
       cards.forEach(function (c) {
-        var ok = (level === "all" || c.dataset.levels.split(" ").indexOf(level) > -1) && (!term || c.dataset.search.indexOf(term) > -1);
+        var ok = (level === "all" || c.dataset.levels.split(" ").indexOf(level) > -1) && (ty.value === "all" || c.dataset.type === ty.value) && (!term || c.dataset.search.indexOf(term) > -1);
         c.hidden = !ok; if (ok) shown++;
       });
       empty.hidden = shown > 0;
     }
     q.addEventListener("input", apply);
+    ty.addEventListener("change", apply);
     [].forEach.call(document.querySelectorAll(".chip[data-f]"), function (b) {
       b.addEventListener("click", function () {
         level = b.dataset.f;
@@ -54,5 +61,7 @@ permalink: /scholarships/
     var start = new URLSearchParams(location.search).get("level");
     var startBtn = start && document.querySelector('.chip[data-f="' + start.replace(/[^a-z]/g, "") + '"]');
     if (startBtn) startBtn.click();
+    var startType = new URLSearchParams(location.search).get("type");
+    if (startType && ty.querySelector('option[value="' + startType.replace(/[^a-z-]/g, "") + '"]')) { ty.value = startType; apply(); }
   })();
 </script>

@@ -10,6 +10,7 @@ funding: Fully funded
 window: ''
 sponsored: false
 date: 2026-10-07
+type: Scholarship
 ---
 
 The **University of Westminster** in London offers **Postgraduate Sanctuary Scholarships** to help people who have been forced to leave their home countries continue their education in the UK. The scholarship pays **full tuition fees** for a master's degree plus **£1,000 a month** for living costs.

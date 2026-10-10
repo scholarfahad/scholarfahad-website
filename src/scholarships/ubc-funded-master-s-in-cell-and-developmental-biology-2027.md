@@ -10,6 +10,9 @@ funding: Fully funded
 window: May 2027 intake closes 30 November 2026; September 2027 intake closes 31 March 2027
 sponsored: false
 date: 2026-10-10
+type: Scholarship
+open_to:
+  - international
 ---
 
 The **University of British Columbia (UBC)** in Vancouver, one of Canada's top universities, offers a research-based **Master of Science in Cell and Developmental Biology**. Every student in the programme receives **guaranteed funding**, so you can do a master's in Canada without paying your own way.

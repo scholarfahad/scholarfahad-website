@@ -10,6 +10,10 @@ funding: Fully funded
 window: ''
 sponsored: false
 date: 2026-10-07
+type: Scholarship
+open_to:
+  - international
+featured: true
 ---
 
 Planning a fully funded master's degree in Europe? These **21 Erasmus Mundus Joint Master's programmes** are open, or opening soon, for the **2027 intake**. They're sorted by deadline so you can see what to prepare first.

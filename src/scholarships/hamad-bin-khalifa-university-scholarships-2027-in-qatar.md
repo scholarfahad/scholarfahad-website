@@ -7,10 +7,14 @@ summary: Stipends of QAR 7,000â€“9,000 a month plus tuition waivers for masterâ€
 levels:
   - masters
   - phd
-funding: Fully funded
+funding: Partially funded
 window: ''
 sponsored: false
 date: 2026-10-10
+type: Scholarship
+open_to:
+  - international
+featured: true
 ---
 
 **Hamad Bin Khalifa University (HBKU)** in Doha, Qatar, is offering scholarships to master's and PhD students for the **Fall 2027** intake. International students can receive a **monthly stipend**, a **tuition waiver** and a **return air ticket**.

@@ -6,6 +6,10 @@ levels: [masters, phd]
 window: Deadlines vary by course, many fall between August and October
 official_url: https://www.daad.de/en/
 summary: German government scholarships for professionals from developing countries to take development-related master's and PhD courses in Germany.
+type: Scholarship
+open_to:
+  - developing
+funding: Fully funded
 ---
 
 The German Academic Exchange Service (DAAD) runs many scholarship programmes. One of the best known for international applicants is EPOS, which funds selected development-related postgraduate courses at German universities.

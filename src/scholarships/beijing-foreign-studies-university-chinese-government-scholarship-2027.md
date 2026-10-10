@@ -11,6 +11,9 @@ funding: Fully funded
 window: ''
 sponsored: false
 date: 2026-10-07
+type: Scholarship
+open_to:
+  - international
 ---
 
 Beijing Foreign Studies University (BFSU) is one of China's leading universities for languages, international studies, translation, journalism and business. International students can study there for free through the \*\*Chinese Government Scholarship (Type B)\*\*, which BFSU offers for master's and PhD programmes.

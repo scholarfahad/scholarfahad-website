@@ -10,6 +10,9 @@ funding: Fully funded
 window: ''
 sponsored: false
 date: 2026-10-07
+type: Scholarship
+open_to:
+  - international
 ---
 
 The Erasmus Mundus International Master in **Children's Literature, Media and Cultural Entrepreneurship (CLMCE)** is a two-year master's degree for students who love stories for young people and want to work with them, whether in research, publishing, media, libraries, education or the creative industries. Applications are now open for the **September 2027** intake.

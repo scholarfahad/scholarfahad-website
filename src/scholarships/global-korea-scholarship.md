@@ -6,6 +6,10 @@ levels: [undergraduate, masters, phd]
 window: Graduate track usually opens around February to March; undergraduate around September
 official_url: https://www.studyinkorea.go.kr/
 summary: The Korean government's fully funded scholarship for undergraduate and graduate study, including a year of Korean language training.
+type: Scholarship
+open_to:
+  - international
+funding: Fully funded
 ---
 
 The Global Korea Scholarship (GKS), formerly known as KGSP, is funded by the Korean government and run by the National Institute for International Education (NIIED). It supports international students at undergraduate, master's and PhD level.

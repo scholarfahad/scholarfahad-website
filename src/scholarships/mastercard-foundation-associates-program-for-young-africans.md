@@ -10,6 +10,9 @@ funding: Paid internship or job
 window: 'Rolling: roles are posted in rounds through regional partners such as Jobberman'
 sponsored: false
 date: 2026-10-08
+type: Job
+open_to:
+  - africa
 ---
 
 The \*\*Mastercard Foundation Associates Program\*\* helps young Africans move from university into meaningful work. Associates get \*\*12-month paid work placements\*\* with employers across Africa, plus \*\*mentorship and employability training\*\*, to build leadership, job and entrepreneurship skills.

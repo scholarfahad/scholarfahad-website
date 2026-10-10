@@ -10,6 +10,9 @@ funding: Fully funded
 window: ''
 sponsored: false
 date: 2026-10-07
+type: Scholarship
+open_to:
+  - international
 ---
 
 The European Master in Migration and Intercultural Relations (EMMIR) is a two-year Erasmus Mundus joint master's degree for students who want to understand migration, displacement and intercultural relations, and to research them. Applications for **Edition 14 (2027–2029)** are now open, and the programme begins on **1 September 2027** in Oldenburg, Germany.

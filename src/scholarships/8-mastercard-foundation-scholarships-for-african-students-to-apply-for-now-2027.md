@@ -11,6 +11,10 @@ funding: Fully funded
 window: Deadlines from 31 October 2026 to 31 January 2027
 sponsored: false
 date: 2026-10-09
+type: Scholarship
+open_to:
+  - africa
+featured: true
 ---
 
 The **Mastercard Foundation Scholars Program** offers full scholarships to talented young Africans at partner universities in Africa and around the world. Scholarships usually cover **tuition, accommodation, travel, a living stipend and leadership support**, though the exact package varies by university.

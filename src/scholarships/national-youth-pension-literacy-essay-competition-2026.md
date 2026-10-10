@@ -10,6 +10,9 @@ funding: Competition with prizes
 window: ''
 sponsored: false
 date: 2026-10-08
+type: Competition
+open_to:
+  - nigeria
 ---
 
 As part of **National Pension Week 2026**, Nigeria's pension industry, including the **National Pension Commission (PenCom)**, has launched the **National Youth Pension Literacy Essay Competition**. Young Nigerians are invited to share their vision for retirement in Nigeria, with **₦2.5 million in total cash prizes**, plus laptops and trophies.

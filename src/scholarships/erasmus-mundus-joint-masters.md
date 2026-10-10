@@ -6,6 +6,10 @@ levels: [masters]
 window: Usually October to February, set by each programme
 official_url: https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en
 summary: Study a joint master's degree in two or more European countries, with a full scholarship from the European Union.
+type: Scholarship
+open_to:
+  - international
+funding: Fully funded
 ---
 
 Erasmus Mundus Joint Masters are master's programmes run by groups of universities in different countries, funded by the European Union. Students study in at least two countries and receive a joint or multiple degree.

@@ -11,6 +11,9 @@ funding: Fully funded
 window: "Fall intake: last year's deadlines were March (early) and June; the Fall 2027 call is expected in early 2027"
 sponsored: false
 date: 2026-10-10
+type: Scholarship
+open_to:
+  - international
 ---
 
 **Sabancı University** is one of Türkiye's leading private research universities, located in **Istanbul**. It offers generous scholarships to graduate students, including **international students**, for its academic **master's and PhD programmes**. According to the university, **almost all students admitted to academic graduate programmes receive full tuition exemption**.

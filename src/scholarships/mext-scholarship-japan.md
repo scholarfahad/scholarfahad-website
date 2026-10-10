@@ -6,6 +6,10 @@ levels: [undergraduate, masters, phd]
 window: Embassy route usually opens around April to May
 official_url: https://www.studyinjapan.go.jp/en/
 summary: Japan's government scholarship for undergraduate, research and graduate study, applied for through an embassy or a university.
+type: Scholarship
+open_to:
+  - international
+funding: Fully funded
 ---
 
 The Monbukagakusho (MEXT) scholarship is offered by Japan's Ministry of Education, Culture, Sports, Science and Technology. It supports international students at many levels, including undergraduate, research student and graduate study.

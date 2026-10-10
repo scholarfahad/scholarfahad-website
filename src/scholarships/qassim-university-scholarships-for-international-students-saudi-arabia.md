@@ -11,6 +11,9 @@ funding: Fully funded
 window: Applications open in short rounds each semester; check Study in Saudi and Qassim University for dates
 sponsored: false
 date: 2026-10-09
+type: Scholarship
+open_to:
+  - international
 ---
 
 **Qassim University** is a public university in **Buraydah, in Saudi Arabia's Qassim Region**. International students can study there on **Saudi government scholarships**, which are offered as **full or partial grants**, for postgraduate programmes including master's and PhD degrees.

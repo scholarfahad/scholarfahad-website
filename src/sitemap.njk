@@ -4,7 +4,7 @@ eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{%- for p in collections.all %}{% if p.url and not p.data.eleventyExcludeFromCollections and p.url != "/thanks/" %}
+{%- for p in collections.all %}{% if p.url and not p.data.eleventyExcludeFromCollections and not p.data.noindex and p.url != "/thanks/" %}
   <url>
     <loc>{{ siteUrl }}{{ p.url }}</loc>
     <lastmod>{{ p.date | isoDate }}</lastmod>

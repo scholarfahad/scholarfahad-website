@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+title: Success stories
+description: Real stories from Scholar Fahad followers who won scholarships, fellowships and internships, and what helped them.
+permalink: /success-stories/
+---
+<div class="wrap">
+  <header class="page-head">
+    <div class="label">Success stories</div>
+    <h1>They applied. They won.</h1>
+    <p>Real stories from followers who won scholarships, fellowships and internships, and what made the difference.</p>
+  </header>
+  {% if collections.stories.length %}
+  <div class="stories">
+    {% for st in collections.stories %}{% include "partials/story-card.njk" %}{% endfor %}
+  </div>
+  {% else %}
+  <p class="empty">The first stories are on their way.</p>
+  {% endif %}
+  <div class="apply-box" style="margin-top:32px">
+    <h2>Did you win with help from Scholar Fahad?</h2>
+    <p>Share your story to inspire thousands of others. Tell us your name, what you won and how you did it. We'll only publish it with your permission.</p>
+    <div class="ctas" style="margin-top:4px"><a class="btn btn-primary" href="/contact/">Share your story</a></div>
+  </div>
+</div>

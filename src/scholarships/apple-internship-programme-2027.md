@@ -13,6 +13,9 @@ funding: Paid internship or job
 window: 'Rolling: roles are posted all year on jobs.apple.com'
 sponsored: false
 date: 2026-10-10
+type: Internship
+open_to:
+  - international
 ---
 
 **Apple** offers internships for university students who want hands-on experience at one of the world's most famous technology companies. Interns work on real projects as full members of their teams, in **technical and non-technical** areas such as software, hardware, machine learning, design, marketing, operations and finance.

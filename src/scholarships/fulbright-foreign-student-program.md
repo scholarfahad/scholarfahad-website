@@ -6,6 +6,10 @@ levels: [masters, phd]
 window: Varies by country, often about a year before studies begin
 official_url: https://foreign.fulbrightonline.org/
 summary: The US government's flagship exchange programme for graduate study and research in the United States.
+type: Scholarship
+open_to:
+  - international
+funding: Fully funded
 ---
 
 The Fulbright Foreign Student Program lets graduate students, young professionals and artists from abroad study and do research in the United States. It is run in each country by a Fulbright Commission or the US Embassy.

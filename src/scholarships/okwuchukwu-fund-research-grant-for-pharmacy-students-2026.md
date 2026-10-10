@@ -10,6 +10,9 @@ funding: Partially funded
 window: ''
 sponsored: false
 date: 2026-10-10
+type: Grant
+open_to:
+  - nigeria
 ---
 
 The **Okwuchukwu Fund** gives financial support to final-year pharmacy students for their capstone research project. It is open to **indigenes of Imo State** studying pharmacy at a Nigerian university.

@@ -1,0 +1,15 @@
+---
+permalink: /search-index.json
+eleventyExcludeFromCollections: true
+---
+[
+{%- for item in collections.scholarships %}
+{% set ti = (item.data | oppType) | typeInfo %}{"t":{{ item.data.title | json | safe }},"u":"{{ item.url }}","c":{{ (item.data.country or "") | json | safe }},"k":{{ ti.singular | json | safe }},"f":{{ (item.data.funding or "") | json | safe }},"l":{{ ((item.data.levels or []) | join(" ")) | json | safe }},"d":"{% if item.data.deadline %}{{ item.data.deadline | isoDate }}{% endif %}","s":{{ (item.data.summary or "") | json | safe }}},
+{%- endfor %}
+{%- for g in collections.guides %}
+{"t":{{ g.data.title | json | safe }},"u":"{{ g.url }}","c":"","k":"Guide","f":"","l":"","d":"","s":{{ (g.data.summary or "") | json | safe }}},
+{%- endfor %}
+{%- for st in collections.stories %}
+{"t":{{ st.data.title | json | safe }},"u":"{{ st.url }}","c":"","k":"Success story","f":"","l":"","d":"","s":{{ (st.data.quote or "") | json | safe }}},
+{%- endfor %}
+null]

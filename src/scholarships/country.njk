@@ -7,14 +7,14 @@ pagination:
 permalink: "/scholarships/countries/{{ c.slug }}/"
 eleventyComputed:
   title: "Scholarships in {{ c.name }}"
-  description: "Fully funded scholarships to study in {{ c.name }}, with eligibility, required documents and official application links."
+  description: "Scholarships and opportunities in {{ c.name }}, with eligibility, required documents and official application links."
 ---
 <div class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/scholarships/">Scholarships</a> / <a href="/scholarships/countries/">Countries</a></nav>
   <header class="page-head" style="padding-top:14px">
     <div class="label">Study in {{ c.name }}</div>
     <h1>Scholarships in {{ c.name }}</h1>
-    <p>{{ c.items.length }} fully funded scholarship{% if c.items.length != 1 %}s{% endif %} listed for {{ c.name }}.</p>
+    <p>{{ c.items.length }} opportunit{% if c.items.length != 1 %}ies{% else %}y{% endif %} listed for {{ c.name }}.</p>
   </header>
   <div class="grid">
     {% for item in c.items %}{% include "partials/card.njk" %}{% endfor %}

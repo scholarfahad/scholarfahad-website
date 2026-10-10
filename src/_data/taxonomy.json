@@ -1,0 +1,26 @@
+{
+  "types": [
+    { "value": "Scholarship", "slug": "scholarships", "title": "Scholarships", "singular": "Scholarship", "intro": "Scholarships for undergraduate, master's and PhD study around the world, with who can apply, what they cover and how to apply." },
+    { "value": "Fellowship", "slug": "fellowships", "title": "Fellowships", "singular": "Fellowship", "intro": "Fellowships for students, researchers, young professionals and leaders, with eligibility, benefits and official application links." },
+    { "value": "Internship", "slug": "internships", "title": "Internships", "singular": "Internship", "intro": "Paid and unpaid internships at international organisations, companies and universities, with who can apply and how." },
+    { "value": "Job", "slug": "jobs", "title": "Jobs", "singular": "Job", "intro": "Graduate jobs, traineeships and paid programmes for young people, with requirements and official application links." },
+    { "value": "Competition", "slug": "competitions", "title": "Competitions", "singular": "Competition", "intro": "Essay, writing, innovation and business competitions with prizes, with entry rules and deadlines." },
+    { "value": "Grant", "slug": "grants", "title": "Grants", "singular": "Grant", "intro": "Research grants, project funding and support grants for students and young people." },
+    { "value": "Training or course", "slug": "training-and-courses", "title": "Training and courses", "singular": "Training", "intro": "Free and funded training programmes, bootcamps and online courses, many with certificates." },
+    { "value": "Conference", "slug": "conferences", "title": "Conferences", "singular": "Conference", "intro": "Fully funded and partially funded conferences, summits and youth forums." },
+    { "value": "Exchange programme", "slug": "exchange-programmes", "title": "Exchange programmes", "singular": "Exchange", "intro": "Exchange and summer programmes for students and young leaders, with funding details and how to apply." }
+  ],
+  "levels": [
+    { "value": "undergraduate", "slug": "undergraduate", "title": "Undergraduate scholarships", "label": "Undergraduate", "intro": "Scholarships and opportunities for bachelor's degree study and for current undergraduate students." },
+    { "value": "masters", "slug": "masters", "title": "Master's scholarships", "label": "Master's", "intro": "Fully and partially funded scholarships for master's degrees, with eligibility, documents and official links." },
+    { "value": "phd", "slug": "phd", "title": "PhD scholarships", "label": "PhD", "intro": "Funded PhD positions, doctoral scholarships and fellowships around the world." },
+    { "value": "highschool", "slug": "high-school", "title": "High school scholarships", "label": "High school", "intro": "Scholarships, competitions and programmes for secondary school students." }
+  ],
+  "audiences": [
+    { "value": "nigeria", "slug": "for-nigerians", "title": "Scholarships for Nigerians", "label": "Nigerians", "includes": ["nigeria", "africa", "developing"], "intro": "Opportunities Nigerians can apply for: ones only for Nigerians, plus ones open to Africans and to developing countries." },
+    { "value": "africa", "slug": "for-africans", "title": "Scholarships for Africans", "label": "Africans", "includes": ["africa", "developing"], "intro": "Scholarships, internships and programmes open to African students and young professionals." },
+    { "value": "developing", "slug": "for-developing-countries", "title": "Scholarships for developing countries", "label": "Developing countries", "includes": ["developing"], "intro": "Opportunities for citizens of developing, low-income and middle-income countries." },
+    { "value": "women", "slug": "for-women", "title": "Scholarships for women", "label": "Women", "includes": ["women"], "intro": "Scholarships, fellowships and programmes just for women and girls." },
+    { "value": "international", "slug": "for-international-students", "title": "Scholarships for international students", "label": "All nationalities", "includes": ["international"], "intro": "Opportunities open to students of any nationality." }
+  ]
+}

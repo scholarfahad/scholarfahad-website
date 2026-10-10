@@ -6,6 +6,10 @@ levels: [undergraduate, masters, phd]
 window: Usually November to January
 official_url: https://stipendiumhungaricum.hu/
 summary: Hungarian government scholarship for students from partner countries, covering tuition, a monthly stipend, housing support and insurance.
+type: Scholarship
+open_to:
+  - international
+funding: Fully funded
 ---
 
 Stipendium Hungaricum is the Hungarian government's scholarship for international students. It is based on agreements between Hungary and partner countries, so availability depends on where you're from.
