@@ -11,7 +11,7 @@ layout: layouts/base.njk
   </nav>
 
   <header class="article-head">
-    {% if isScholarship %}<div class="label">{% if country %}{{ country }} · {% endif %}{{ funding or "Fully funded" }}</div>{% else %}<div class="label">Application guide</div>{% endif %}
+    {% if isScholarship %}<div class="label">{{ country }}{% if country and funding %} · {% endif %}{{ funding }}</div>{% else %}<div class="label">Application guide</div>{% endif %}
     <h1>{{ title }}</h1>
     <div class="meta">
       <span>Updated {{ page.date | readableDate }}</span>
@@ -26,7 +26,7 @@ layout: layouts/base.njk
     <dl class="facts">
       {% if country %}<dt>Host country</dt><dd>{{ country }}</dd>{% endif %}
       {% if levels and levels.length %}<dt>Study level</dt><dd>{% for l in levels %}{{ l | levelName }}{% if not loop.last %}, {% endif %}{% endfor %}</dd>{% endif %}
-      <dt>Funding</dt><dd>{{ funding or "Fully funded" }}</dd>
+      {% if funding %}<dt>Funding</dt><dd>{{ funding }}</dd>{% endif %}
       {% if deadline %}<dt>Deadline</dt><dd>{{ deadline | readableDate }}</dd>{% endif %}
       {% if window %}<dt>Usual window</dt><dd>{{ window }}</dd>{% endif %}
       {% if official_url %}<dt>Official site</dt><dd><a href="{{ official_url }}" target="_blank" rel="noopener nofollow">{{ official_url | displayUrl }}</a></dd>{% endif %}

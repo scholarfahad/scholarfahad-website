@@ -3,7 +3,7 @@
 <article class="card" data-levels="{{ (s.levels or []) | join(' ') }}" data-search="{{ (s.title + ' ' + (s.country or '') + ' ' + (s.summary or '')) | lower }}">
   <div class="row">
     {% if s.country %}<a class="country" href="/scholarships/countries/{{ s.country | slug2 }}/">{{ s.country }}</a>{% else %}<span class="country">Opportunity</span>{% endif %}
-    <span>{% if s.sponsored %}<span class="fund sponsored">Sponsored</span> {% endif %}<span class="fund">{{ s.funding or "Fully funded" }}</span></span>
+    <span>{% if s.sponsored %}<span class="fund sponsored">Sponsored</span> {% endif %}{% if s.funding %}<span class="fund">{{ s.funding }}</span>{% endif %}</span>
   </div>
   <h3><a href="{{ item.url }}">{{ s.title }}</a></h3>
   <p>{{ s.summary }}</p>

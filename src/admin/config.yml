@@ -45,7 +45,7 @@ collections:
         widget: select
         default: Fully funded
         required: false
-        options: [Fully funded, Partially funded, Tuition only, Paid internship or job, Unpaid internship]
+        options: [Fully funded, Partially funded, Tuition only, Paid internship or job, Unpaid internship, Competition with prizes, Application fee waiver]
       - { name: window, label: Usual application window (optional), widget: string, required: false, hint: "e.g. Usually opens in August and closes in October" }
       - { name: sponsored, label: Sponsored post, widget: boolean, default: false, required: false, hint: "Only for paid posts. Shows a 'Sponsored' label." }
       - { name: date, label: Date posted (filled in automatically), widget: datetime, default: "{{now}}", time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD" }
