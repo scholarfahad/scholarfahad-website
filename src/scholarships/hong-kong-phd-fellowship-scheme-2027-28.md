@@ -1,6 +1,6 @@
 ---
 title: Hong Kong PhD Fellowship Scheme 2027/28
-country: HongKong
+country: Hong Kong
 official_url: https://cerg1.ugc.edu.hk/hkpfs/index.html
 deadline: 2026-12-01
 summary: 400 fully funded PhD fellowships at eight Hong Kong universities, open to all nationalities, with a stipend of HK$344,400 (about US$44,000) a year plus a travel allowance.
@@ -10,9 +10,9 @@ funding: Fully funded
 window: ''
 sponsored: false
 date: 2026-10-08
-type: Fellowship
 open_to:
   - international
+type: Fellowship
 ---
 
 The **Hong Kong PhD Fellowship Scheme (HKPFS)** is one of the most generous PhD awards in the world. Run by Hong Kong's Research Grants Council (RGC), it offers **400 fellowships** for the **2027/28** academic year to outstanding students who want to do a PhD at one of eight Hong Kong universities. **Applicants from any country** can apply.
