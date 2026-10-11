@@ -10,7 +10,7 @@ levels:
 open_to:
   - international
 funding: Paid internship or job
-window: rolling:%20each%20country%20posts%20its%20own%20roles.%20Singapore%202027%20roles%20are%20open%20now.
+window: 'Rolling: each country posts its own roles. Singapore 2027 roles are open now.'
 featured: false
 sponsored: false
 date: 2026-10-11
