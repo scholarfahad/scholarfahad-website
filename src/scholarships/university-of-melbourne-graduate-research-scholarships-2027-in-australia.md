@@ -7,6 +7,7 @@ deadline: 2026-10-31
 summary: Full tuition, A$41,100 a year, health cover and a relocation grant for PhD and research master’s students at the University of Melbourne. Round 1 closes 31 October 2026, with later rounds in January and May 2027.
 levels:
   - phd
+  - masters
 open_to:
   - international
 funding: Fully funded
