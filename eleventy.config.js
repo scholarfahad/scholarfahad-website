@@ -27,6 +27,21 @@ export default function (eleventyConfig) {
     return out;
   });
 
+  // Turn plain web addresses in posts into clickable links,
+  // and open links to other websites in a new tab
+  eleventyConfig.amendLibrary("md", (md) => {
+    md.set({ linkify: true });
+    const defaultOpen = md.renderer.rules.link_open || ((tokens, idx, options, env, self) => self.renderToken(tokens, idx, options));
+    md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
+      const href = tokens[idx].attrGet("href") || "";
+      if (/^https?:\/\//.test(href) && !/^https?:\/\/(www\.)?scholarfahad\.com/.test(href)) {
+        tokens[idx].attrSet("target", "_blank");
+        tokens[idx].attrSet("rel", "noopener");
+      }
+      return defaultOpen(tokens, idx, options, env, self);
+    };
+  });
+
   const levelNames = { undergraduate: "Undergraduate", masters: "Master's", phd: "PhD", highschool: "High school", other: "Other" };
 
   eleventyConfig.addCollection("scholarships", (api) =>
