@@ -10,7 +10,7 @@ levels:
 open_to:
   - africa
   - developing
-funding: ''
+funding: Fully funded
 window: 15 October to 31 January every year
 featured: false
 sponsored: false
