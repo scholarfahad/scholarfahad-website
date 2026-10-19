@@ -11,7 +11,7 @@ levels:
   - phd
 open_to:
   - international
-funding: ''
+funding: Partially funded
 window: 'Deutschlandstipendium: mid-January; STIBET and aid: 31 January, 30 June, 31 October'
 featured: false
 sponsored: false
