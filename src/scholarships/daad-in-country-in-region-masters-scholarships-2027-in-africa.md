@@ -1,7 +1,7 @@
 ---
 title: DAAD In-Country In-Region Masters Scholarships 2027 in Africa
 type: Scholarship
-country: Africa Multi- country
+country: Africa (multi-country)
 official_url: https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000486
 deadline: 2026-11-12
 summary: DAAD’s In-Country/In-Region programme fully funds master’s degrees at 13 programmes in Ghana, Kenya, Malawi, Rwanda, Tanzania, Uganda, Ethiopia and Burkina Faso for graduates from sub-Saharan Africa. Deadline 12 November 2026.
