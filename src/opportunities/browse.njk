@@ -36,6 +36,14 @@ eleventyComputed:
   <p class="empty">No {{ bp.label | lower }} listed yet. New ones are added every week. <a href="/scholarships/">See all opportunities</a> or join the <a href="{{ site.whatsapp_channel }}" target="_blank" rel="noopener">WhatsApp channel</a> to hear first.</p>
   {% endif %}
 
+  {% if bp.about and bp.about.length %}
+  <section class="prose page-guide" style="margin-top:40px">
+    <h2>About {{ bp.title | lower }}</h2>
+    {% for para in bp.about %}<p>{{ para }}</p>{% endfor %}
+    <p>New opportunities are added every week, and each listing explains who can apply, what is covered and how to apply on the official website.</p>
+  </section>
+  {% endif %}
+
   {% if bp.kind == "audience" and bp.key != "international" %}
   <p class="note">You can also apply for opportunities open to every nationality. <a href="/scholarships/for-international-students/">See scholarships for international students</a>.</p>
   {% endif %}

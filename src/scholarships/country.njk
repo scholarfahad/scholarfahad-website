@@ -14,9 +14,16 @@ eleventyComputed:
   <header class="page-head" style="padding-top:14px">
     <div class="label">Study in {{ c.name }}</div>
     <h1>Scholarships in {{ c.name }}</h1>
-    <p>{{ c.items.length }} opportunit{% if c.items.length != 1 %}ies{% else %}y{% endif %} listed for {{ c.name }}.</p>
+    {% if countryIntros[c.name] %}<p>{{ countryIntros[c.name] }}</p>{% endif %}
+    {% set openC = c.items | stillOpen %}
+    <p class="count">{{ c.items.length }} opportunit{% if c.items.length != 1 %}ies{% else %}y{% endif %} listed for {{ c.name }}{% if c.items.length > openC.length %} · {{ openC.length }} open now{% endif %}.</p>
   </header>
   <div class="grid">
     {% for item in c.items %}{% include "partials/card.njk" %}{% endfor %}
   </div>
+  <section class="prose page-guide" style="margin-top:40px">
+    <h2>Before you apply to study in {{ c.name }}</h2>
+    <p>Each listing above explains who can apply, what the award covers and the deadline, with a link to the official website. Check three things before you start: whether your nationality is eligible, whether the scholarship covers living costs as well as tuition, and whether you must apply for admission and the scholarship separately.</p>
+    <p>Need help with your documents? Read our <a href="/guides/">application guides</a> on CVs, motivation letters and research proposals.</p>
+  </section>
 </div>

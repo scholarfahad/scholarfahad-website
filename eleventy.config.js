@@ -72,11 +72,11 @@ export default function (eleventyConfig) {
   // One page per type, level and audience, e.g. /opportunities/internships/, /scholarships/masters/
   eleventyConfig.addCollection("browsePages", (api) => {
     const all = posts(api), pages = [];
-    for (const t of tax.types) pages.push({ kind: "type", key: t.value, label: t.title, title: t.title, intro: t.intro,
+    for (const t of tax.types) pages.push({ kind: "type", key: t.value, label: t.title, title: t.title, intro: t.intro, about: t.about,
       url: `/opportunities/${t.slug}/`, items: all.filter((i) => typeOf(i.data) === t.value) });
-    for (const l of tax.levels) pages.push({ kind: "level", key: l.value, label: l.label, title: l.title, intro: l.intro,
+    for (const l of tax.levels) pages.push({ kind: "level", key: l.value, label: l.label, title: l.title, intro: l.intro, about: l.about,
       url: `/scholarships/${l.slug}/`, items: all.filter((i) => (i.data.levels || []).includes(l.value)) });
-    for (const a of tax.audiences) pages.push({ kind: "audience", key: a.value, label: a.label, title: a.title, intro: a.intro,
+    for (const a of tax.audiences) pages.push({ kind: "audience", key: a.value, label: a.label, title: a.title, intro: a.intro, about: a.about,
       url: `/scholarships/${a.slug}/`, items: all.filter((i) => (i.data.open_to || []).some((v) => a.includes.includes(v))) });
     return pages;
   });

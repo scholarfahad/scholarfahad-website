@@ -54,6 +54,8 @@ layout: layouts/base.njk
   </div>
   {% endif %}
 
+  {% include "partials/author.njk" %}
+
   <div class="share">
     <span>Share this with a friend:</span>
     <a class="chip" href="https://www.facebook.com/sharer/sharer.php?u={{ (siteUrl + page.url) | urlencode }}" target="_blank" rel="noopener">Facebook</a>
@@ -83,7 +85,7 @@ layout: layouts/base.njk
   "headline": {{ title | json | safe }},
   "description": {{ (summary or site.description) | json | safe }},
   "dateModified": "{{ page.date | isoDate }}",
-  "author": { "@type": "Organization", "name": "{{ site.name }}" },
+  "author": { "@type": "Person", "name": "Fahad Babangida", "url": "{{ siteUrl }}/about/" },
   "publisher": { "@type": "Organization", "name": "{{ site.name }}" },
   "mainEntityOfPage": "{{ siteUrl }}{{ page.url }}"
 }
