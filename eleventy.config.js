@@ -54,13 +54,18 @@ export default function (eleventyConfig) {
   eleventyConfig.addCollection("countries", (api) => {
     const map = new Map();
     for (const item of api.getFilteredByGlob("src/scholarships/*.md")) {
-      const c = item.data.country;
+      const c = (item.data.country || "").trim();
       if (!c) continue;
-      if (!map.has(c)) map.set(c, []);
-      map.get(c).push(item);
+      // Group by web address, so spelling variants ("Africa (multi-country)" and
+      // "Africa Multi- country") share one page instead of breaking the build
+      const key = slugify(c);
+      if (!map.has(key)) map.set(key, { name: c, items: [] });
+      const g = map.get(key);
+      if (/\(/.test(c) && !/\(/.test(g.name)) g.name = c;
+      g.items.push(item);
     }
     return [...map.entries()]
-      .map(([name, items]) => ({ name, slug: slugify(name), items: items.sort((a, b) => b.date - a.date) }))
+      .map(([slug, g]) => ({ name: g.name, slug, items: g.items.sort((a, b) => b.date - a.date) }))
       .sort((a, b) => a.name.localeCompare(b.name));
   });
 
