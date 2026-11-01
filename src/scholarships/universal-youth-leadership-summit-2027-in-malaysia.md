@@ -8,7 +8,7 @@ summary: The Universal Youth Leadership Summit 2027 takes place in Kuala Lumpur 
 levels: []
 open_to:
   - international
-funding: Partially funded
+funding: Fully funded
 window: ''
 featured: false
 sponsored: false
