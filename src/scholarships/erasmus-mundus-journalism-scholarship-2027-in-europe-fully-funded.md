@@ -1,7 +1,7 @@
 ---
 title: Erasmus Mundus Journalism Scholarship 2027 in Europe (Fully Funded)
 type: Scholarship
-country: Denmark
+country: Europe (multi-country)
 official_url: https://mundusjournalism.com/admissions/
 deadline: 2027-01-10
 summary: The Erasmus Mundus Master’s in Journalism, Media and Globalisation is a 2-year degree in Denmark plus Germany, the Netherlands, Czechia or the UK. Scholarships cover full tuition, EUR 1,400 a month for up to 24 months and insurance, for students of any nationality.
